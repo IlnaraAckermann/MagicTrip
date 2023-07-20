@@ -1,0 +1,22 @@
+
+#intro-example {
+  background: url('./img/01.jpg') center / cover no-repeat;
+
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./img/01.jpg');
+    background-position: center; */
+}
+
+.mask {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* padding: 2rem; */
+    /* height: 100%; */
+    /* display: flex; */
+}
+
+/* Default height for small devices */
+#intro-example {
+  height: 85vh;
+}
+
