@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <title>MagicTrip - Viajens mágicas para todos os gostos</title>
 </head>
@@ -14,9 +17,9 @@
 
 
 
-  <header>
+  <header class="position-relative ">
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light navanimation  position-absolute d-block w-100">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">MagicTrip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -42,15 +45,16 @@
     </nav>
     <!-- Background image -->
     <div id="intro-example" class="p-5 text-center d-flex justify-content-center align-items-center">
-      <div class="mask p-4 rounded">
+      <div class="mask p-4 rounded fade-out ">
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-dark">
-            <h1 class="mb-3">Viva a magia em cada destino.</h1>
-            <h5 class="mb-4">
+            <h1 class="mb-3  slide-t">Viva a magia em cada destino.</h1>
+            <h5 class="mb-4  slide-t">
               Viaje, sonhe, encante-se!
             </h5>
-            <a class="btn btn-outline-dark btn-lg m-2" href="#" role="button" rel="nofollow" target="_self">Destinos</a>
-            <a class="btn btn-outline-dark btn-lg m-2" href="#" target="_self" role="button">Promoções</a>
+            <a class="slide-bt btn btn-outline-dark btn-lg m-2" href="#" role="button" rel="nofollow"
+              target="_self">Destinos</a>
+            <a class="slide-bt btn btn-outline-dark btn-lg m-2" href="#" target="_self" role="button">Promoções</a>
           </div>
         </div>
       </div>
@@ -66,8 +70,8 @@
 
       <div class="row">
 
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
+        <div class="col-lg-4 col-sm-6 mb-3 ">
+          <div class="card ">
             <img class="card-img-top" src="img/02.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
@@ -81,7 +85,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
+        <div class="col-lg-4 col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/03.jpg" alt="Imagem de capa do card">
             <div class="card-body">
@@ -96,7 +100,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
+        <div class="col-lg-4 col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/04.jpg" alt="Imagem de capa do card">
             <div class="card-body">
@@ -111,7 +115,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
+        <div class="col-lg-4 col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/05.jpg" alt="Imagem de capa do card">
             <div class="card-body">
@@ -126,7 +130,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
+        <div class="col-lg-4 col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/06.jpg" alt="Imagem de capa do card">
             <div class="card-body">
@@ -141,7 +145,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
+        <div class="col-lg-4 col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/07.jpg" alt="Imagem de capa do card">
             <div class="card-body">
@@ -156,97 +160,6 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/08.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/09.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/10.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/11.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/12.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6 mb-2">
-          <div class="card">
-            <img class="card-img-top" src="img/13.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">
-                Lorem, ipsum dolor.
-              </h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
-                ipsum
-                harum ad id velit. Beatae doloribus similique eveniet.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
-            </div>
-          </div>
-        </div>
-
-
       </div>
 
       <div class="my-3">
@@ -254,12 +167,13 @@
       </div>
       <div class="row">
 
-        <div class="col-12 mb-2">
-          <div class="card">
+        <div class="col-12 mb-3">
+          <div class="card principal">
             <img class="card-img-top" src="img/p-5.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
                 Lorem, ipsum dolor.
+                <span class="badge bg-success ">20%off</span>
               </h5>
               <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
                 ipsum
@@ -269,12 +183,13 @@
           </div>
         </div>
 
-        <div class="col-sm-6 mb-2">
+        <div class="col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/p-3.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
                 Lorem, ipsum dolor.
+                <span class="badge bg-success">10%off</span>
               </h5>
               <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
                 ipsum
@@ -284,12 +199,13 @@
           </div>
         </div>
 
-        <div class="col-sm-6 mb-2">
+        <div class="col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/p-4.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
                 Lorem, ipsum dolor.
+                <span class="badge bg-success">15%off</span>
               </h5>
               <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
                 ipsum
@@ -299,12 +215,13 @@
           </div>
         </div>
 
-        <div class="col-sm-6 mb-2">
+        <div class="col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/p-2.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
                 Lorem, ipsum dolor.
+                <span class="badge bg-success">10%off</span>
               </h5>
               <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
                 ipsum
@@ -314,12 +231,13 @@
           </div>
         </div>
 
-        <div class="col-sm-6 mb-2">
+        <div class="col-sm-6 mb-3">
           <div class="card">
             <img class="card-img-top" src="img/p-1.jpg" alt="Imagem de capa do card">
             <div class="card-body">
               <h5 class="card-title">
                 Lorem, ipsum dolor.
+                <span class="badge bg-success">10%off</span></h1>
               </h5>
               <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repudiandae optio
                 ipsum
@@ -337,11 +255,23 @@
 
     </section>
   </main>
-  <footer><small>Site desenvolvido por
-      <a href="https://www.linkedin.com/in/ilnaraackermann/">
-        @IlnaraAckermann
-      </a>
-    </small></footer>
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <small>
+        Site desenvolvido por @IlnaraAckermann
+        <br>
+
+        <a href="#" class="text-white mx-2" title="GitHub">
+          <i class="fab fa-github mx-2">GitHub</i>
+        </a>
+
+        <a href="#" class="text-white mx-2" title="LinkedIn">
+          <i class="fab fa-linkedin mx-2">LinkedIn</i>
+        </a>
+      </small>
+    </div>
+  </footer>
+
 
 
 
