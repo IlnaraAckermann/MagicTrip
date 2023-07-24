@@ -1,14 +1,5 @@
 *{
-  transition: background-color 0.3s;
-}
-
-#intro-example {
-  background: url('../img/01.jpg') center / cover no-repeat;
-}
-
-.navanimation {
-  transform: translateY(-80px);
-  animation: slide 750ms .1s ease-in-out 1 normal forwards;
+  transition: background-color .5s;
 }
 
 @keyframes slide {
@@ -22,7 +13,7 @@
 }
 
 
-@keyframes slide-bt {
+@keyframes slide-b {
   0% {
     opacity: 0;
     transform: translateY(100px)
@@ -30,27 +21,21 @@
 
   100% {
     opacity: 1;
-    transform: translatex(0)
+    transform: translateY(0)
   }
 }
 @keyframes slide-t {
   0% {
     opacity: 0;
-    transform: translateY(-100px)
+    transform: translateY(-150px)
   }
 
   100% {
     opacity: 1;
-    transform: translatex(0)
+    transform: translateY(0)
   }
 }
 
-.slide-bt {
-  animation: slide-bt 1750ms 1s ease-in-out 1 normal forwards;
-}
-.slide-t {
-  animation: slide-t 1750ms 1s ease-in-out 1 normal forwards;
-}
 
 
 @keyframes fade-out {
@@ -63,19 +48,49 @@
   }
 }
 
+#intro-example {
+  background: url('../img/01.jpg') center / cover no-repeat;
+}
+
+.navanimation {
+  transform: translateY(-80px);
+  animation: slide 750ms .1s ease-in-out 1 normal forwards;
+}
+
+.slide-b {  
+  opacity: 0;
+  animation: slide-b 1750ms 1s ease-in-out 1 normal forwards;
+}
+.slide-t {  
+  opacity: 0;
+  animation: slide-t 2350ms 1s ease-in-out 1 normal forwards;
+}
+
+
 .fade-out { 
   opacity: 0;
-  animation: fade-out 750ms 1s ease-in-out 1 normal forwards;
+  animation: fade-out 1.5s 0.75s ease-in-out 1 normal forwards;
 }
 
 .delay-1 {
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 }
 .delay-2 {
-  animation-delay: 1.3s;
+  animation-delay: 2s;
 }
 .delay-3 {
-  animation-delay: 1.7s;
+  animation-delay: 2.5s;
+}
+.delay-4 {
+  animation-delay: 3s;
+}
+
+.delay-5 {
+  animation-delay: 3.5s;
+}
+
+.delay-6 {
+  animation-delay: 4s;
 }
 
 .mask {
@@ -85,7 +100,7 @@
 
 /* Default height for small devices */
 #intro-example {
-  height: 90vh;
+  height: 100vh;
 }
 
 
@@ -107,4 +122,45 @@ i::before{
 }
 i{
   letter-spacing: .2rem;
+}
+@keyframes downarrow {
+  0% {
+      -webkit-transform: translateY(0);
+      opacity: 0.4;
+  }
+
+  100% {
+      -webkit-transform: translateY(0.4rem);
+      opacity: 0.9;
+  }
+}
+#intro-example::after {
+  content: url(../img/seta_preta.png);
+  height: 3.5rem;
+  bottom: 1rem;
+  position: absolute;
+  animation: downarrow 0.6s infinite alternate ease-in-out;
+}
+
+.card {
+  transform: translateX(-100vw);
+}
+
+
+@keyframes cardAnimation{
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cardAnimation {  
+  opacity: 1;
+  transform: scale(1);
+  animation: cardAnimation 1.7s ease-in-out 1 normal forwards;
 }
