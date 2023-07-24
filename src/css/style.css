@@ -48,8 +48,27 @@
   }
 }
 
+
+
+  
+  @keyframes heroChange {
+  0%   {background: url("../img/01.jpg") center / cover no-repeat;}
+  20%   {background: url("../img/01.jpg") center / cover no-repeat;}
+  25%  {background: url("../img/02.jpg") center / cover no-repeat;}
+  45%  {background: url("../img/02.jpg") center / cover no-repeat;}
+  50%  {background: url("../img/03.jpg") center / cover no-repeat;}
+  70%  {background: url("../img/03.jpg") center / cover no-repeat;}
+  75%  {background: url("../img/04.jpg") center / cover no-repeat;}
+  95%  {background: url("../img/04.jpg") center / cover no-repeat;}
+  100% {background: url("../img/01.jpg") center / cover no-repeat;}
+  }
+
 #intro-example {
   background: url('../img/01.jpg') center / cover no-repeat;
+  /* animation-duration: 20s;
+  animation-delay: 4s;
+  animation-iteration-count: infinite; */
+  animation: heroChange 20s 4s infinite;
 }
 
 .navanimation {
