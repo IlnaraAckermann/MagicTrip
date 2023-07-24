@@ -180,6 +180,6 @@ i{
 
 .cardAnimation {  
   opacity: 1;
-  transform: scale(1);
-  animation: cardAnimation 1.7s ease-in-out 1 normal forwards;
+  transform: scale(0.1);
+  animation: cardAnimation 1.7s 0.01s ease-in-out 1 normal forwards;
 }
