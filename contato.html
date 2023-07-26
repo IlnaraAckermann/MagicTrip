@@ -55,59 +55,96 @@
 
     </header>
 
-    <main class="container">
+    <main class="container mt-5">
+        <h2 class="text-center"> Contato - Agência de Viagens Mágicas</h2>
+        <!-- <div class="d-flex"> -->
+        <div class="row mt-5 px-5">
+            <div class="col-xl-4 col-lg-5 col-sm-12">
+                <figure class="ratio ratio-1x1 ">
+                    <img src="src/img/email.jpg" alt="imagem de uma cartinha mágica"
+                        class="object-fit-cover rounded-circle">
+                </figure>
 
-        
-           <h2> Contato - Agência de Viagens Mágicas</h2>
-            
-            <p>Se você tiver alguma dúvida ou precisar de mais informações sobre nossos pacotes de viagens mágicas, entre em contato conosco através dos canais abaixo:</p>
-            
-            <p>Telefone: (XX) XXXX-XXXX (Horário de Atendimento: Seg-Sex, das 9h às 18h)</p>
-            
-            <p>E-mail: contato@viagensmagicas.com</p>
-            
-            <p>Endereço: Rua das Fadas Encantadas, 123 - Floresta dos Sonhos, Cidade Mágica</p>
-            
-           
+            </div>
 
-        <iframe class="w-100 "
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d50032.35001203611!2d-81.59868146634224!3d28.390172549452355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd7ee634caa5f7%3A0xa71e391fd01cf1a0!2sWalt%20Disney%20World%20Resort!5e0!3m2!1spt-BR!2sbr!4v1690231577472!5m2!1spt-BR!2sbr"  height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="col mx-5 h-100 ">
+                <form id="formContato" action="enviar_contato.php" method="POST">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem:</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
 
-            <h3>Formulário de Contato:</h3>
-            
-            <p>Se preferir, você pode enviar uma mensagem diretamente através do formulário abaixo:</p>
 
-                   
-            <form id="formContato" action="enviar_contato.php" method="POST">
-                <div class="mb-3">
-                  <label for="nome" class="form-label">Nome:</label>
-                  <input type="text" class="form-control" id="nome" name="nome" required>
+
+    </main>
+
+
+    <footer class="row bg-secondary bg-gradient mt-5 px-5 pb-5 gy-5">
+        <div class="col-xl-3 col-sm-12 ">
+            <h3>Endereço</h3>
+            Rua das Fadas Encantadas, 123 - Floresta dos Sonhos, Cidade Mágica
+        </div>
+        <div class="col-xl-3 col-sm-12 ">
+            <h3>E-mail</h3>
+
+            contato@viagensmagicas.com
+        </div>
+        <div class="col-xl-3 col-sm-12 ">
+            <h3>Telefone</h3>
+            (XX) XXXX-XXXX<br>
+            (Horário de Atendimento: Seg-Sex, das 9h às 18h)
+        </div>
+
+        <div class="col-xl-3 col-sm-12">
+            <div class="row">
+                <div class=" col-xl-12 col-xxl-6">
+                    <a href="https://www.facebook.com/" target="_blank" class="link-light ">
+                        <i class="fab fa-facebook m-2">facebook</i>
+                    </a>
                 </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">E-mail:</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                <div class=" col-xl-12 col-xxl-6">
+                    <a href="https://twitter.com/" target="_blank" class="link-light">
+                        <i class="fab fa-twitter m-2">Twitter</i>
+                    </a>
                 </div>
-                <div class="mb-3">
-                  <label for="mensagem" class="form-label">Mensagem:</label>
-                  <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                <div class=" col-xl-12 col-xxl-6">
+                    <a href="https://www.instagram.com/" target="_blank" class="link-light">
+                        <i class="fab fa-instagram m-2">Instagram</i>
+                    </a>
                 </div>
-                <button type="submit" class="btn btn-success">Enviar Mensagem</button>
-              </form>
-              <p>Redes Sociais:</p>
-            
-            <p>Instagram</p>
-            <p>Facebook</p>
-            <p>Twitter</p>
+                <div class=" col-xl-12 col-xxl-6">
+                    <a href="https://www.linkedin.com/" target="_blank" class="link-light">
+                        <i class="fab fa-linkedin m-2">LinkedIn</i>
+                    </a>
+                </div>
+                <div class=" col-xl-12 col-xxl-6">
+                    <a href="https://www.youtube.com/" target="_blank" class="link-light">
+                        <i class="fab fa-youtube m-2">Youtube</i>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        </main>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <script src="src/js/index.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <script src="src/js/index.js"></script>
 </body>
 
 </html>

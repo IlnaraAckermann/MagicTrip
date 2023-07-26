@@ -1,4 +1,4 @@
-*{
+* {
   transition: background-color .5s;
 }
 
@@ -24,6 +24,7 @@
     transform: translateY(0)
   }
 }
+
 @keyframes slide-t {
   0% {
     opacity: 0;
@@ -40,7 +41,7 @@
 
 @keyframes fade-out {
   0% {
-   opacity: 0;
+    opacity: 0;
   }
 
   100% {
@@ -50,18 +51,44 @@
 
 
 
-  
-  @keyframes heroChange {
-  0%   {background: url("../img/01.jpg") center / cover no-repeat;}
-  20%   {background: url("../img/01.jpg") center / cover no-repeat;}
-  25%  {background: url("../img/02.jpg") center / cover no-repeat;}
-  45%  {background: url("../img/02.jpg") center / cover no-repeat;}
-  50%  {background: url("../img/03.jpg") center / cover no-repeat;}
-  70%  {background: url("../img/03.jpg") center / cover no-repeat;}
-  75%  {background: url("../img/04.jpg") center / cover no-repeat;}
-  95%  {background: url("../img/04.jpg") center / cover no-repeat;}
-  100% {background: url("../img/01.jpg") center / cover no-repeat;}
+
+@keyframes heroChange {
+  0% {
+    background: url("../img/01.jpg") center / cover no-repeat;
   }
+
+  20% {
+    background: url("../img/01.jpg") center / cover no-repeat;
+  }
+
+  25% {
+    background: url("../img/02.jpg") center / cover no-repeat;
+  }
+
+  45% {
+    background: url("../img/02.jpg") center / cover no-repeat;
+  }
+
+  50% {
+    background: url("../img/03.jpg") center / cover no-repeat;
+  }
+
+  70% {
+    background: url("../img/03.jpg") center / cover no-repeat;
+  }
+
+  75% {
+    background: url("../img/04.jpg") center / cover no-repeat;
+  }
+
+  95% {
+    background: url("../img/04.jpg") center / cover no-repeat;
+  }
+
+  100% {
+    background: url("../img/01.jpg") center / cover no-repeat;
+  }
+}
 
 #intro-example {
   background: url('../img/01.jpg') center / cover no-repeat;
@@ -76,17 +103,18 @@
   animation: slide 750ms .1s ease-in-out 1 normal forwards;
 }
 
-.slide-b {  
+.slide-b {
   opacity: 0;
   animation: slide-b 1750ms 1s ease-in-out 1 normal forwards;
 }
-.slide-t {  
+
+.slide-t {
   opacity: 0;
   animation: slide-t 2350ms 1s ease-in-out 1 normal forwards;
 }
 
 
-.fade-out { 
+.fade-out {
   opacity: 0;
   animation: fade-out 1.5s 0.75s ease-in-out 1 normal forwards;
 }
@@ -94,12 +122,15 @@
 .delay-1 {
   animation-delay: 1.5s;
 }
+
 .delay-2 {
   animation-delay: 2s;
 }
+
 .delay-3 {
   animation-delay: 2.5s;
 }
+
 .delay-4 {
   animation-delay: 3s;
 }
@@ -123,36 +154,43 @@
 }
 
 
-.card:hover{
-  transform:scale(1.05);
+.card:hover {
+  transform: scale(1.05);
 }
-.card.principal:hover{
-  transform:scale(1.01);
+
+.card.principal:hover {
+  transform: scale(1.01);
 }
-a {  
+
+a {
   text-decoration: none;
 }
-small a i:hover {  
-  transform:scale(1.1);
+
+small a i:hover {
+  transform: scale(1.1);
 }
-i::before{
+
+i::before {
   margin-right: 0.2rem;
-  
+
 }
-i{
+
+i {
   letter-spacing: .2rem;
 }
+
 @keyframes downarrow {
   0% {
-      -webkit-transform: translateY(0);
-      opacity: 0.4;
+    -webkit-transform: translateY(0);
+    opacity: 0.4;
   }
 
   100% {
-      -webkit-transform: translateY(0.4rem);
-      opacity: 0.9;
+    -webkit-transform: translateY(0.4rem);
+    opacity: 0.9;
   }
 }
+
 #intro-example::after {
   content: url(../img/seta_preta.png);
   height: 3.5rem;
@@ -166,7 +204,7 @@ i{
 }
 
 
-@keyframes cardAnimation{
+@keyframes cardAnimation {
   0% {
     opacity: 0;
     transform: scale(0.1);
@@ -178,8 +216,21 @@ i{
   }
 }
 
-.cardAnimation {  
+.cardAnimation {
   opacity: 1;
   transform: scale(0.1);
   animation: cardAnimation 1.7s 0.01s ease-in-out 1 normal forwards;
 }
+
+
+.bg-secondary {
+  color: #fff !important;
+}
+
+
+a:hover i {
+  transform: scale(1.1);
+  filter: drop-shadow(5px 5px 10px #FFFFFF);
+  transition: 0.3s linear;
+}
+
