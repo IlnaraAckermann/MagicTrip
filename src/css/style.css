@@ -144,7 +144,7 @@
 
 /* Default height for small devices */
 #intro-example {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 56px);
 }
 
 
