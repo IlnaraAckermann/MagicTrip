@@ -231,3 +231,7 @@ body{
   flex-direction: column;
   justify-content: space-between;
 }
+
+.nav-link.active {
+  font-weight: 600;
+}
