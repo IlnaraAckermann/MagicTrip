@@ -49,9 +49,6 @@
   }
 }
 
-
-
-
 @keyframes heroChange {
   0% {
     background: url("../img/01.jpg") center / cover no-repeat;
@@ -92,9 +89,6 @@
 
 #intro-example {
   background: url('../img/01.jpg') center / cover no-repeat;
-  /* animation-duration: 20s;
-  animation-delay: 4s;
-  animation-iteration-count: infinite; */
   animation: heroChange 20s 4s infinite;
 }
 
@@ -150,7 +144,7 @@
 
 /* Default height for small devices */
 #intro-example {
-  height: 100vh;
+  height: calc(100vh - 60px);
 }
 
 
@@ -164,10 +158,6 @@
 
 a {
   text-decoration: none;
-}
-
-small a i:hover {
-  transform: scale(1.1);
 }
 
 i::before {
@@ -230,7 +220,7 @@ i {
 
 a:hover i {
   transform: scale(1.1);
-  filter: drop-shadow(5px 5px 10px #FFFFFF);
+  filter: drop-shadow(0px 0px 5px #FFFFFF);
   transition: 0.3s linear;
 }
 
