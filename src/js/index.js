@@ -75,7 +75,10 @@ window.addEventListener("resize", function () {
   window.removeEventListener("resize", this);
 });
 
-
+window.addEventListener("DOMContentLoaded", function () {
+  animatedCard();
+  window.removeEventListener("DOMContentLoaded", this);
+});
 
 
 const form = document.getElementById('myForm'); //
