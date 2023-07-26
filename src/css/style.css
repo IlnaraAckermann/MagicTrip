@@ -234,3 +234,8 @@ a:hover i {
   transition: 0.3s linear;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

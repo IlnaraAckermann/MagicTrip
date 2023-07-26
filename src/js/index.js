@@ -74,3 +74,13 @@ window.addEventListener("resize", function () {
   windowHeight = window.innerHeight;
   window.removeEventListener("resize", this);
 });
+
+
+
+
+const form = document.getElementById('myForm'); //
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+  form.reset(); 
+});
