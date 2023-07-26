@@ -90,6 +90,7 @@
 #intro-example {
   background: url('../img/01.jpg') center / cover no-repeat;
   animation: heroChange 20s 4s infinite;
+  height: calc(100vh - 56px);
 }
 
 .navanimation {
@@ -142,11 +143,12 @@
   color: #000;
 }
 
-/* Default height for small devices */
-#intro-example {
-  height: calc(100vh - 56px);
-}
 
+#heroDestino {
+  height: 30vh;
+  background: url('../img/01.jpg') center / cover no-repeat;
+  animation: heroChange 20s 4s infinite;
+}
 
 .card:hover {
   transform: scale(1.05);
