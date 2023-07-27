@@ -90,7 +90,7 @@
 #intro-example {
   background: url('../img/01.jpg') center / cover no-repeat;
   animation: heroChange 20s 4s infinite;
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 .navanimation {
@@ -145,7 +145,7 @@
 
 
 #heroDestino {
-  height: 30vh;
+  height: 55vh;
   background: url('../img/01.jpg') center / cover no-repeat;
   animation: heroChange 20s 4s infinite;
 }
@@ -226,10 +226,11 @@ a:hover i {
   transition: 0.3s linear;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100svh;
 }
 
 .nav-link.active {

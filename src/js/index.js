@@ -81,9 +81,10 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const form = document.getElementById('myForm'); //
+const form = document.querySelector('form'); //
 
 form.addEventListener('submit', function(event) {
   event.preventDefault(); 
+  
   form.reset(); 
 });
