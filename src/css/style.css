@@ -240,3 +240,18 @@ body {
 .input-group-text{
   width: 6rem;
 }
+
+
+@media screen and (max-width: 420px) {
+  .mask{
+    padding: 1rem !important;
+  }
+  
+  
+  #heroDestino {
+    height: 75vh;
+    background: url('../img/01.jpg') center / cover no-repeat;
+    animation: heroChange 20s 4s infinite;
+  }
+  
+}
