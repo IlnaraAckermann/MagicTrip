@@ -59,54 +59,88 @@
         <div class="mask p-5 container rounded">
             <form method="post">
                 <h3 class="mb-3">Encontre sua viagem ideal!</h3>
-            <div class="row g-2">
-                <div class="col-lg-3 col-12">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating">
+                            <input class="form-control" list="origemOptions" id="origem">
+                            <datalist id="origemOptions">
+                                <option value="Terra">
+                                    Terra
+                                </option>
+                                <option value="Pais das Fadas">
+                                    Pais das Fadas
+                                </option>
+                                <option value="Atlantis">
+                                    Atlantis
+                                </option>
+                                <option value="Cidade das Feras">
+                                    Cidade das Feras
+                                </option>
+                                <option value="Floresta encantada">
+                                    Floresta encantada
+                                </option>
+                            </datalist>
 
-                    <div class="input-group input-group-lg">
-                        <label for="origem" class="input-group-text">
-                            <span>Origem</span>
-                        </label>
-                        <input class="form-control" list="origemOptions" id="origem">
-                        <datalist id="origemOptions">
-                            <option value="Terra">
-                            <option value="Pais das Fadas">
-                            <option value="Atlantis">
-                            <option value="Cidade das Feras">
-                            <option value="Floresta encantada">
-                        </datalist>
+                            <label for="origem">
+                                Origem
+                            </label>
+                        </div>
+
                     </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="form-floating">
+                            <input class="form-control" list="origemOptions" id="origem">
+                            <datalist id="origemOptions">
+                                <option value="Terra">
+                                    Terra
+                                </option>
+                                <option value="Pais das Fadas">
+                                    Pais das Fadas
+                                </option>
+                                <option value="Atlantis">
+                                    Atlantis
+                                </option>
+                                <option value="Cidade das Feras">
+                                    Cidade das Feras
+                                </option>
+                                <option value="Floresta encantada">
+                                    Floresta encantada
+                                </option>
+                            </datalist>
 
-                </div>
-                <div class="col-lg-3 col-12">
-                    <div class="input-group input-group-lg">
-                        <label for="origem" class="input-group-text">
-                            <span>Destino</span>
-                        </label>
-                        <input class="form-control" list="origemOptions" id="origem">
-                        <datalist id="origemOptions">
-                            <option value="Terra">
-                            <option value="Pais das Fadas">
-                            <option value="Atlantis">
-                            <option value="Cidade das Feras">
-                            <option value="Floresta encantada">
-                        </datalist>
+                            <label for="origem">
+                                Destino
+                            </label>
+                        </div>
+
                     </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="row g-2">
+                            <div class="col-6 col-lg-12">
 
-                </div>
-                <div class="col-lg-2 col-12">
-                    <input type="date" name="check_in" class="mb-2">
-                    <input type="date" name="check_out">
+                                <div class="input-group">
+                                    <span class="input-group-text">Check in</span>
+                                    <input type="date" name="check_in" id="check_in" class="p-1 form-control">
+                                  </div>
+                                  
+                            </div>
+                            <div class="col-6 col-lg-12">
 
-                </div>
-                <div class="col-lg-2 col-12">
-                    <input type="range" name="min_price" min="0" max="1000">
+                                <div class="input-group">
+                                    <span class="input-group-text">Check out</span>
+                                    <input type="date" name="check_out" id="check_out" class="p-1 form-control">
+                                  </div>
 
-                </div>
-                <div class="col-lg-1 col-12">
-                    <button type="submit" class="btn btn-primary">Enviar</i></button>
+                            </div>
 
+
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-12">
+                        <button type="submit" class="btn btn-primary">Enviar</i></button>
+
+                    </div>
                 </div>
-            </div>
 
 
 

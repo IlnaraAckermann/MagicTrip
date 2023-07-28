@@ -236,3 +236,7 @@ body {
 .nav-link.active {
   font-weight: 600;
 }
+
+.input-group-text{
+  width: 6rem;
+}
