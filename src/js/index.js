@@ -52,7 +52,6 @@ checkUserPreference();
 
 //animando ao entrar na tela
 const card = document.querySelectorAll('.card');
-console.log(card)
 
 let windowHeight = window.innerHeight;
 
