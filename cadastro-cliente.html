@@ -55,7 +55,7 @@
     </header>
 
 
-    <div class="container">
+    <main class="container mt-5">
 
         <h1>Cadastro de Cliente</h1>
         <form>
@@ -113,14 +113,53 @@
                     </div>
                 </div>
             </div>
-                <div class="form-floating mb-3">
-                    <input type="text" id="cep" class="form-control" required>
-                    <label for="cep">CEP:</label>
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" id="cep" class="form-control" required>
+                        <label for="cep">CEP:</label>
+                    </div>
                 </div>
-            
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <div class="col-md-6">
+                    <div class="form-floating  mb-3">
+                        <select class="form-select" id="estado">
+                            <option value="" selected disabled>Selecione o estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                            <option value="Não residente no Brasil">*Não residente no Brasil*</option>
+                        </select>
+                        <label for="estado" class="form-label">Estado</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
-    </div>
+    </main>
 
 
 
