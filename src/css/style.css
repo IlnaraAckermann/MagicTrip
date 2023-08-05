@@ -229,8 +229,11 @@ a:hover i {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  position: relative;
   min-height: 100svh;
+}
+main {
+  flex: 1;
 }
 
 .nav-link.active {
