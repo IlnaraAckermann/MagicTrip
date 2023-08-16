@@ -2,6 +2,19 @@
   transition: background-color .5s;
 }
 
+#btnTema {
+  position: absolute;
+  right: 1rem;
+  top: .6rem;
+}
+
+@media screen and (max-width: 1000px) {
+  #btnTema {
+      position: absolute;
+      right: 4rem;
+  }
+}
+
 @keyframes slide {
   0% {
     transform: translateY(-80px)
@@ -245,6 +258,9 @@ main {
   width: 6rem;
 }
 
+header{
+  min-height: 3.5rem;
+}
 
 @media screen and (max-width: 420px) {
   .mask {
