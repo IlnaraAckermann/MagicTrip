@@ -60,10 +60,10 @@ CREATE TABLE compra
  id_usuario INT PRIMARY KEY 
 ); 
 
-ALTER TABLE telefone ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
-ALTER TABLE vendedor ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
-ALTER TABLE avaliacao_vendedor ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor)
-ALTER TABLE avaliacao_destino ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino)
-ALTER TABLE compra ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino)
-ALTER TABLE compra ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor)
-ALTER TABLE compra ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
+ALTER TABLE telefone ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario);
+ALTER TABLE vendedor ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario);
+ALTER TABLE avaliacao_vendedor ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor);
+ALTER TABLE avaliacao_destino ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino);
+ALTER TABLE compra ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino);
+ALTER TABLE compra ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor);
+ALTER TABLE compra ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario);
