@@ -1,70 +1,69 @@
-CREATE TABLE User 
-( 
- user_id INT PRIMARY KEY AUTO_INCREMENT,  
- user_CPF VARCHAR(n),  
- logradouro VARCHAR(n),  
+CREATE TABLE usuario ( 
+ id_usuario INT PRIMARY KEY AUTO_INCREMENT,  
+ cpf VARCHAR(11) NOT NULL UNIQUE,  
+ logradouro VARCHAR(255),  
  numero INT,  
- complemento VARCHAR(n),  
- cep VARCHAR(n),  
- bairro VARCHAR(n),  
- cidade VARCHAR(n),  
- estado VARCHAR(n),  
- frist_name VARCHAR(n),  
- middle_name VARCHAR(n),  
- last_name VARCHAR(n),  
+ complemento VARCHAR(255),  
+ cep VARCHAR(9),  
+ bairro VARCHAR(255),  
+ cidade VARCHAR(255),  
+ estado VARCHAR(2),  
+ nome_primeiro VARCHAR(255),  
+ nome_meio VARCHAR(255),  
+ name_ultimo VARCHAR(255),  
 ); 
 
 CREATE TABLE telefone 
 ( 
- telefone_area VARCHAR(n),  
- telefone_numero VARCHAR(n),  
- idUser INT,  
+ telefone_area VARCHAR(2),  
+ telefone_numero VARCHAR(11),  
+ id_usuario INT,  
 ); 
 
 CREATE TABLE destinos 
-( 
- dest_id INT PRIMARY KEY AUTO_INCREMENT,  
- dest_name VARCHAR(n),  
- dest_descricao VARCHAR(n),  
+(  
+ id_destino INT PRIMARY KEY AUTO_INCREMENT,  
+ nome VARCHAR(255) NOT NULL UNIQUE,  
+ descricao VARCHAR(255),
 ); 
 
 CREATE TABLE vendedor 
 ( 
- ID_vendedor INT PRIMARY KEY AUTO_INCREMENT,  
- idUser INT,  
+ id_vendedor INT PRIMARY KEY AUTO_INCREMENT,  
+ id_usuario INT,  
 ); 
 
-CREATE TABLE ava_vend 
+CREATE TABLE avaliacao_vendedor 
 ( 
  Comentario VARCHAR(n),  
  Nota INT,  
- idvendedor INT,  
+ id_vendedor INT,  
 ); 
 
-CREATE TABLE ava_dest 
+CREATE TABLE avaliacao_destino 
 ( 
  nota INT,  
  comentario VARCHAR(n),  
- iddestinos INT,  
+ id_destino INT,  
 ); 
 
 CREATE TABLE compra 
 ( 
- valor FLOAT,  
+ valor DECIMAL(10,2),  
  qnt_pessoas INT,  
- tipo_pacote VARCHAR(n),  
- comissao FLOAT,  
+ tipo_pacote VARCHAR(255),  
+ comissao DECIMAL(10,2),  
  data_fim DATE,  
  data_inicio DATE,  
- dest_id INT PRIMARY KEY,  
- ID_vendedor INT PRIMARY KEY,  
- user_id INT PRIMARY KEY,  
+ id_destino INT PRIMARY KEY,  
+ id_vendedor INT PRIMARY KEY,  
+ id_usuario INT PRIMARY KEY,  
 ); 
 
-ALTER TABLE telefone ADD FOREIGN KEY(idUser) REFERENCES User (idUser)
-ALTER TABLE vendedor ADD FOREIGN KEY(idUser) REFERENCES User (idUser)
-ALTER TABLE ava_vend ADD FOREIGN KEY(idvendedor) REFERENCES vendedor (idvendedor)
-ALTER TABLE ava_dest ADD FOREIGN KEY(iddestinos) REFERENCES destinos (iddestinos)
-ALTER TABLE compra ADD FOREIGN KEY(dest_id) REFERENCES destinos (dest_id)
-ALTER TABLE compra ADD FOREIGN KEY(ID_vendedor) REFERENCES vendedor (ID_vendedor)
-ALTER TABLE compra ADD FOREIGN KEY(user_id) REFERENCES User (user_id)
+ALTER TABLE telefone ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
+ALTER TABLE vendedor ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
+ALTER TABLE avaliacao_vendedor ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor)
+ALTER TABLE avaliacao_destino ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino)
+ALTER TABLE compra ADD FOREIGN KEY(id_destino) REFERENCES destinos (id_destino)
+ALTER TABLE compra ADD FOREIGN KEY(id_vendedor) REFERENCES vendedor (id_vendedor)
+ALTER TABLE compra ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
