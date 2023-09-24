@@ -10,41 +10,41 @@ CREATE TABLE usuario (
  estado VARCHAR(2),  
  nome_primeiro VARCHAR(255),  
  nome_meio VARCHAR(255),  
- name_ultimo VARCHAR(255),  
+ name_ultimo VARCHAR(255)  
 ); 
 
 CREATE TABLE telefone 
 ( 
  telefone_area VARCHAR(2),  
  telefone_numero VARCHAR(11),  
- id_usuario INT,  
+ id_usuario INT  
 ); 
 
 CREATE TABLE destinos 
 (  
  id_destino INT PRIMARY KEY AUTO_INCREMENT,  
  nome VARCHAR(255) NOT NULL UNIQUE,  
- descricao VARCHAR(255),
+ descricao VARCHAR(255)
 ); 
 
 CREATE TABLE vendedor 
 ( 
  id_vendedor INT PRIMARY KEY AUTO_INCREMENT,  
- id_usuario INT,  
+ id_usuario INT
 ); 
 
 CREATE TABLE avaliacao_vendedor 
 ( 
- Comentario VARCHAR(n),  
+ Comentario VARCHAR(255),  
  Nota INT,  
- id_vendedor INT,  
+ id_vendedor INT  
 ); 
 
 CREATE TABLE avaliacao_destino 
 ( 
  nota INT,  
- comentario VARCHAR(n),  
- id_destino INT,  
+ comentario VARCHAR(255),  
+ id_destino INT  
 ); 
 
 CREATE TABLE compra 
@@ -57,7 +57,7 @@ CREATE TABLE compra
  data_inicio DATE,  
  id_destino INT PRIMARY KEY,  
  id_vendedor INT PRIMARY KEY,  
- id_usuario INT PRIMARY KEY,  
+ id_usuario INT PRIMARY KEY 
 ); 
 
 ALTER TABLE telefone ADD FOREIGN KEY(id_usuario) REFERENCES usuario (id_usuario)
