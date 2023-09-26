@@ -9,9 +9,9 @@ public class Compra {
     private BigDecimal comissao;
     private Date data_fim;
     private Date data_inicio;
-    private int id_destino;
-    private int id_usuario;
-    private int id_vendedor;
+    private Destinos destino;
+    private Usuario usuario;
+    private Vendedor vendedor;
     public BigDecimal getValor() {
         return valor;
     }
@@ -48,23 +48,22 @@ public class Compra {
     public void setData_inicio(Date data_inicio) {
         this.data_inicio = data_inicio;
     }
-    public int getId_destino() {
-        return id_destino;
+    public Destinos getDestino() {
+        return destino;
     }
-    public void setId_destino(int id_destino) {
-        this.id_destino = id_destino;
+    public void setDestino(Destinos destino) {
+        this.destino = destino;
     }
-    public int getId_usuario() {
-        return id_usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-    public int getId_vendedor() {
-        return id_vendedor;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
-    public void setId_vendedor(int id_vendedor) {
-        this.id_vendedor = id_vendedor;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
-
 }

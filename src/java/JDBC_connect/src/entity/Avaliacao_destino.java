@@ -3,7 +3,13 @@ package entity;
 public class Avaliacao_destino {
     private int nota;
     private String comentario;
-    private int id_destino;
+    private Destinos destino;
+    public Destinos getDestino() {
+        return destino;
+    }
+    public void setDestino(Destinos destino) {
+        this.destino = destino;
+    }
     public int getNota() {
         return nota;
     }
@@ -15,11 +21,5 @@ public class Avaliacao_destino {
     }
     public void setComentario(String comentario) {
         this.comentario = comentario;
-    }
-    public int getId_destino() {
-        return id_destino;
-    }
-    public void setId_destino(int id_destino) {
-        this.id_destino = id_destino;
     }
 }
