@@ -7,7 +7,7 @@ import entity.Destinos;
 
 public class DestinoDAO {
     public void cadastrarDestino(Destinos destino) {
-        String sql = "INSERT INTO USUARIO ( BOME, DESCRICAO) VALUES (?, ?)";
+        String sql = "INSERT INTO DESTINOS ( NOME, DESCRICAO) VALUES (?, ?)";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);

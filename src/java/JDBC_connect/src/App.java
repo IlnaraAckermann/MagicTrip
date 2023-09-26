@@ -1,4 +1,6 @@
+import DAO.DestinoDAO;
 import DAO.UsuarioDAO;
+import entity.Destinos;
 import entity.Usuario;
 
 public class App {
@@ -22,6 +24,16 @@ public class App {
         // ilnara.setSenha("UmaSenhaQu@lqu3r");
         //chamando a classe UsuarioDao para poder realizar o create no DB
         // new UsuarioDAO().cadastrarUsuario(ilnara);
+
+
+        //Criando a classe destino e cadastrando o Destino no BD
+        // Destinos terraDasFadas = new Destinos();
+        // terraDasFadas.setNome("Terra das Fadas");
+        // terraDasFadas.setDescricao("Um reino encantado onde fadas dançam entre flores e árvores mágicas.");
+        // new DestinoDAO().cadastrarDestino(terraDasFadas);
+
+
+        
         
     }
 }
