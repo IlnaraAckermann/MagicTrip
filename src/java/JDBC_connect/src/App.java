@@ -2,7 +2,7 @@ import DAO.DestinoDAO;
 import DAO.UsuarioDAO;
 import entity.Destinos;
 import entity.Usuario;
-import querys.ListarUsuarios;
+import querys.ListarTabelas;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -32,7 +32,11 @@ public class App {
         // terraDasFadas.setNome("Terra das Fadas");
         // terraDasFadas.setDescricao("Um reino encantado onde fadas dançam entre flores e árvores mágicas.");
         // new DestinoDAO().cadastrarDestino(terraDasFadas);
-new ListarUsuarios().listarUsuario();
+// new ListarTabelas().listarUsuario();
+// new ListarTabelas().listarUsuarioID("1");
+// new ListarTabelas().listarUsuarioName("ilnara");
+// new ListarTabelas().listarUsuarioEmail("ilnara.ackermann@hotmail.com");
+
 
         
         
