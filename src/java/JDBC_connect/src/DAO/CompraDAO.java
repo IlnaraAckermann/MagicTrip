@@ -1,13 +1,10 @@
 package DAO;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import connect.Connect;
 import entity.Compra;
-import entity.Destinos;
 
 public class CompraDAO {
     public void cadastrarCompra(BigDecimal valor, int qnt_pessoas, String tipo_pacote, BigDecimal comissao,
