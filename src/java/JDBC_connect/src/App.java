@@ -1,7 +1,9 @@
 import DAO.DestinoDAO;
 import DAO.UsuarioDAO;
+import DAO.VendedorDAO;
 import entity.Destinos;
 import entity.Usuario;
+import entity.Vendedor;
 import querys.ListarTabelas;
 
 public class App {
@@ -98,6 +100,31 @@ public class App {
         // new UsuarioDAO().deletarUsuario(2);
         
         // new ListarTabelas().listarUsuario();
-
+        
+        // Vendedor vJoao = new Vendedor();
+        // vJoao.setUsuario(joao);
+        
+        // new VendedorDAO().cadastrarVendedor(1);
+        
+        // new ListarTabelas().listarVendedor();
+        // new VendedorDAO().atualizarVendedor(3, 3);
+        System.out.println("-------------");
+        new ListarTabelas().listarVendedor();
+        System.out.println("-------------");
+        new ListarTabelas().listarUsuario();
+        System.out.println("-------------");
+        new ListarTabelas().listarUsuarioID("1");
+        System.out.println("-------------");
+        new ListarTabelas().listarUsuarioEmail("ilnara.ackermann@hotmail.com");
+        System.out.println("-------------");
+        new ListarTabelas().listarUsuarioName("ilnara");
+        System.out.println("-------------");
+        new ListarTabelas().listarVendedorID("3");
+        System.out.println("-------------");
+        new ListarTabelas().listarDestino();
+        System.out.println("-------------");
+        System.out.println("-------------");
+        System.out.println("-------------");
+        
     }
 }

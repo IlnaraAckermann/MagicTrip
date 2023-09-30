@@ -1,6 +1,4 @@
 package DAO;
-
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -35,8 +33,9 @@ public class UsuarioDAO {
 
     public void atualizarUsuario(int id, Usuario usuario) {
         String sql = "UPDATE USUARIO SET CPF = ?, LOGRADOURO = ?, NUMERO = ?, COMPLEMENTO = ?, CEP = ?, BAIRRO = ?, CIDADE = ?, ESTADO = ?, NOME_PRIMEIRO = ?, NOME_MEIO = ?, NOME_ULTIMO = ?, EMAIL = ?, SENHA = ? WHERE ID_USUARIO = ?";
-        try (Connection conn = Connect.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
+        PreparedStatement ps = null;
+        try {
+            ps = Connect.getConnection().prepareStatement(sql);
 
             ps.setString(1, usuario.getCpf());
             ps.setString(2, usuario.getLogradouro());
@@ -67,8 +66,9 @@ public class UsuarioDAO {
 
     public void deletarUsuario(int id) {
         String sql = "DELETE FROM USUARIO WHERE ID_USUARIO = ?";
-        try (Connection conn = Connect.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
+        PreparedStatement ps = null;
+        try {
+            ps = Connect.getConnection().prepareStatement(sql);
 
             ps.setInt(1, id);
 
