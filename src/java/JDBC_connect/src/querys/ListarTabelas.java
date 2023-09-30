@@ -16,8 +16,6 @@ public class ListarTabelas {
             conn = Connect.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery(sql);
-
-            // Obtém o objeto `ResultSetMetaData`
             ResultSetMetaData rsmd = rs.getMetaData();
 
             while (rs.next()) {
@@ -118,8 +116,6 @@ public class ListarTabelas {
             conn = Connect.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery(sql);
-
-            // Obtém o objeto `ResultSetMetaData`
             ResultSetMetaData rsmd = rs.getMetaData();
 
             while (rs.next()) {
@@ -168,8 +164,6 @@ public class ListarTabelas {
             conn = Connect.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery(sql);
-
-            // Obtém o objeto `ResultSetMetaData`
             ResultSetMetaData rsmd = rs.getMetaData();
 
             while (rs.next()) {
@@ -239,6 +233,31 @@ public class ListarTabelas {
         }
     }
 
+
+   public void listarCompras() {
+        String sql = "SELECT * FROM compra";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

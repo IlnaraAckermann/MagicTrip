@@ -102,21 +102,22 @@ public class App {
         
         // new ListarTabelas().listarVendedor();
         // new VendedorDAO().atualizarVendedor(3, 3);
+        // System.out.println("-------------");
+        // new ListarTabelas().listarVendedor();
+        // System.out.println("-------------");
+        // new ListarTabelas().listarUsuario();
+        // System.out.println("-------------");
+        // new ListarTabelas().listarUsuarioID("1");
+        // System.out.println("-------------");
+        // new ListarTabelas().listarUsuarioEmail("ilnara.ackermann@hotmail.com");
+        // System.out.println("-------------");
+        // new ListarTabelas().listarUsuarioName("ilnara");
+        // System.out.println("-------------");
+        // new ListarTabelas().listarVendedorID("3");
+        // System.out.println("-------------");
+        // new ListarTabelas().listarDestino();
         System.out.println("-------------");
-        new ListarTabelas().listarVendedor();
-        System.out.println("-------------");
-        new ListarTabelas().listarUsuario();
-        System.out.println("-------------");
-        new ListarTabelas().listarUsuarioID("1");
-        System.out.println("-------------");
-        new ListarTabelas().listarUsuarioEmail("ilnara.ackermann@hotmail.com");
-        System.out.println("-------------");
-        new ListarTabelas().listarUsuarioName("ilnara");
-        System.out.println("-------------");
-        new ListarTabelas().listarVendedorID("3");
-        System.out.println("-------------");
-        new ListarTabelas().listarDestino();
-        System.out.println("-------------");
+        new ListarTabelas().listarCompras();
         System.out.println("-------------");
         System.out.println("-------------");
         
