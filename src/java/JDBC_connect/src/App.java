@@ -1,9 +1,3 @@
-import DAO.DestinoDAO;
-import DAO.UsuarioDAO;
-import DAO.VendedorDAO;
-import entity.Destinos;
-import entity.Usuario;
-import entity.Vendedor;
 import querys.ListarTabelas;
 
 public class App {
