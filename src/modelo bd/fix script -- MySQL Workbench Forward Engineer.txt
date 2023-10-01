@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema db_magictrip
 -- -----------------------------------------------------
 
@@ -13,6 +16,36 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `db_magictrip` DEFAULT CHARACTER SET utf8mb3 ;
 USE `db_magictrip` ;
+
+-- -----------------------------------------------------
+-- Table `db_magictrip`.`destinos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_magictrip`.`destinos` (
+  `id_destino` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `descricao` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_destino`),
+  UNIQUE INDEX `nome` (`nome` ASC) VISIBLE,
+  UNIQUE INDEX `id_destino_UNIQUE` (`id_destino` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `db_magictrip`.`avaliacao_destinos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_magictrip`.`avaliacao_destinos` (
+  `nota` INT NULL DEFAULT NULL,
+  `comentario` VARCHAR(255) NULL DEFAULT NULL,
+  `id_destino` INT NOT NULL,
+  INDEX `id_destino` (`id_destino` ASC) VISIBLE,
+  CONSTRAINT `fk_avaliacao_vendedo_destino`
+    FOREIGN KEY (`id_destino`)
+    REFERENCES `db_magictrip`.`destinos` (`id_destino`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
 
 -- -----------------------------------------------------
 -- Table `db_magictrip`.`usuario`
@@ -27,39 +60,18 @@ CREATE TABLE IF NOT EXISTS `db_magictrip`.`usuario` (
   `bairro` VARCHAR(255) NULL DEFAULT NULL,
   `cidade` VARCHAR(255) NULL DEFAULT NULL,
   `estado` VARCHAR(2) NULL DEFAULT NULL,
-  `nome_primeiro` VARCHAR(255) NULL DEFAULT NULL,
+  `nome_primeiro` VARCHAR(255) NOT NULL,
   `nome_meio` VARCHAR(255) NULL DEFAULT NULL,
-  `name_ultimo` VARCHAR(255) NULL DEFAULT NULL,
+  `nome_ultimo` VARCHAR(255) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE INDEX (`cpf` ASC) VISIBLE,
+  UNIQUE INDEX `cpf` (`cpf` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE);
-
-
--- -----------------------------------------------------
--- Table `db_magictrip`.`telefone`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_magictrip`.`telefone` (
-  `telefone_area` VARCHAR(2) NULL DEFAULT NULL,
-  `telefone_numero` VARCHAR(11) NULL DEFAULT NULL,
-  `id_usuario` INT NOT NULL,
-  INDEX (`id_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_telefone_usuario`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `db_magictrip`.`usuario` (`id_usuario`));
-
-
--- -----------------------------------------------------
--- Table `db_magictrip`.`destinos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_magictrip`.`destinos` (
-  `id_destino` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(255) NOT NULL,
-  `descricao` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_destino`),
-  UNIQUE INDEX (`nome` ASC) VISIBLE,
-  UNIQUE INDEX `id_destino_UNIQUE` (`id_destino` ASC) VISIBLE);
+  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
@@ -69,12 +81,15 @@ CREATE TABLE IF NOT EXISTS `db_magictrip`.`vendedor` (
   `id_vendedor` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   PRIMARY KEY (`id_vendedor`),
-  INDEX (`id_usuario` ASC) VISIBLE,
   UNIQUE INDEX `id_vendedor_UNIQUE` (`id_vendedor` ASC) VISIBLE,
   UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
+  INDEX `id_usuario` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_vendedor_usuario`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `db_magictrip`.`usuario` (`id_usuario`));
+    REFERENCES `db_magictrip`.`usuario` (`id_usuario`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
@@ -84,23 +99,12 @@ CREATE TABLE IF NOT EXISTS `db_magictrip`.`avaliacao_vendedor` (
   `Comentario` VARCHAR(255) NULL DEFAULT NULL,
   `Nota` INT NULL DEFAULT NULL,
   `id_vendedor` INT NOT NULL,
-  INDEX (`id_vendedor` ASC) VISIBLE,
+  INDEX `id_vendedor` (`id_vendedor` ASC) VISIBLE,
   CONSTRAINT `fk_avaliacao_vendedor_vendedor`
     FOREIGN KEY (`id_vendedor`)
-    REFERENCES `db_magictrip`.`vendedor` (`id_vendedor`));
-
-
--- -----------------------------------------------------
--- Table `db_magictrip`.`avaliacao_destino`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_magictrip`.`avaliacao_vendedo` (
-  `nota` INT NULL DEFAULT NULL,
-  `comentario` VARCHAR(255) NULL DEFAULT NULL,
-  `id_destino` INT NOT NULL,
-  INDEX (`id_destino` ASC) VISIBLE,
-  CONSTRAINT `fk_avaliacao_vendedo_destino`
-    FOREIGN KEY (`id_destino`)
-    REFERENCES `db_magictrip`.`destinos` (`id_destino`));
+    REFERENCES `db_magictrip`.`vendedor` (`id_vendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
@@ -116,15 +120,38 @@ CREATE TABLE IF NOT EXISTS `db_magictrip`.`compra` (
   `id_destino` INT NOT NULL,
   `id_vendedor` INT NULL DEFAULT NULL,
   `id_usuario` INT NOT NULL,
+  `id_compra` INT NOT NULL AUTO_INCREMENT,
+  INDEX `fk_compra_destino` (`id_destino` ASC) VISIBLE,
+  INDEX `fk_compra_vendedor` (`id_vendedor` ASC) VISIBLE,
+  INDEX `fk_compra_usuario` (`id_usuario` ASC) VISIBLE,
+  PRIMARY KEY (`id_compra`),
+  UNIQUE INDEX `id_compra_UNIQUE` (`id_compra` ASC) VISIBLE,
   CONSTRAINT `fk_compra_destino`
     FOREIGN KEY (`id_destino`)
     REFERENCES `db_magictrip`.`destinos` (`id_destino`),
-  CONSTRAINT `fk_compra_vendedor`
-    FOREIGN KEY (`id_vendedor`)
-    REFERENCES `db_magictrip`.`vendedor` (`id_vendedor`),
   CONSTRAINT `fk_compra_usuario`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `db_magictrip`.`usuario` (`id_usuario`));
+    REFERENCES `db_magictrip`.`usuario` (`id_usuario`),
+  CONSTRAINT `fk_compra_vendedor`
+    FOREIGN KEY (`id_vendedor`)
+    REFERENCES `db_magictrip`.`vendedor` (`id_vendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `db_magictrip`.`telefone`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_magictrip`.`telefone` (
+  `telefone_area` VARCHAR(2) NULL DEFAULT NULL,
+  `telefone_numero` VARCHAR(11) NULL DEFAULT NULL,
+  `id_usuario` INT NOT NULL,
+  INDEX `id_usuario` (`id_usuario` ASC) VISIBLE,
+  CONSTRAINT ``
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `db_magictrip`.`usuario` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
