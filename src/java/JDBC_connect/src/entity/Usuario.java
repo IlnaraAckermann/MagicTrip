@@ -16,6 +16,27 @@ public class Usuario {
     private String email;
     private String senha;
 
+    public Usuario() {
+    }
+
+    public Usuario(String cpf, String logradouro, int numero, String complemento, String cep,
+            String bairro, String cidade, String estado, String nome_primeiro, String nome_meio,
+            String nome_ultimo, String email, String senha) {
+        this.cpf = cpf;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cep = cep;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.nome_primeiro = nome_primeiro;
+        this.nome_meio = nome_meio;
+        this.nome_ultimo = nome_ultimo;
+        this.email = email;
+        this.senha = senha;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }

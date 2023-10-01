@@ -52,7 +52,7 @@ public class Compra {
     public String toString() {
         return "Compra [valor=" + valor + ", qnt_pessoas=" + qnt_pessoas + ", tipo_pacote=" + tipo_pacote
                 + ", comissao=" + comissao + ", data_fim=" + data_fim + ", data_inicio=" + data_inicio + ", destino="
-                + destino + ", usuario=" + usuario + ", vendedor=" + vendedor + ", id_compra=" + id_compra + "]";
+                + destino.getId_destino() + ", usuario=" + usuario.getId_usuario() + ", vendedor=" + vendedor.getId_vendedor() + ", id_compra=" + id_compra + "]";
     }
 
     // getters e setters

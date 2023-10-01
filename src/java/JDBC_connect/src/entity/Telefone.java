@@ -5,10 +5,17 @@ public class Telefone {
     private String telefone_numero;
     private Usuario usuario;
 
+    public Telefone(){}
+    public Telefone (String telefone_area, String telefone_numero, Usuario usuario){
+        this.telefone_area = telefone_area;
+        this.telefone_numero = telefone_numero;
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
         return "Telefone [telefone_area=" + telefone_area + ", telefone_numero=" + telefone_numero + ", usuario="
-                + usuario + "]";
+                + usuario.getId_usuario() + "]";
     }
 
     public Usuario getUsuario() {

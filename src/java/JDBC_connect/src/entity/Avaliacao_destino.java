@@ -5,9 +5,21 @@ public class Avaliacao_destino {
     private String comentario;
     private Destinos destino;
 
+    public Avaliacao_destino(){}
+    public Avaliacao_destino(int nota, Destinos destino){
+        this.nota= nota;
+        this.destino = destino;
+        this.comentario = null;
+    }
+    public Avaliacao_destino(int nota, Destinos destino, String comentario){
+        this.nota= nota;
+        this.destino = destino;
+        this.comentario = comentario;
+    }
+
     @Override
     public String toString() {
-        return "Avaliacao_destino [nota=" + nota + ", comentario=" + comentario + ", destino=" + destino + "]";
+        return "Avaliacao_destino [nota=" + nota + ", comentario=" + comentario + ", destino=" + destino.getId_destino() + "]";
     }
 
     public Destinos getDestino() {

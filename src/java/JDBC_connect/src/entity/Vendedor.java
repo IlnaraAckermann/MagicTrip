@@ -4,9 +4,14 @@ public class Vendedor {
     private int id_vendedor;
     private Usuario usuario;
 
+    public Vendedor(){}
+    public Vendedor(Usuario usuario){
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
-        return "Vendedor [id_vendedor=" + id_vendedor + ", usuario=" + usuario + "]";
+        return "Vendedor [id_vendedor=" + id_vendedor + ", usuario=" + usuario.toString() + "]";
     }
 
     public Usuario getUsuario() {

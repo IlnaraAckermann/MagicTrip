@@ -6,6 +6,12 @@ public class Destinos {
     private String nome;
     private String descricao;
 
+    public Destinos(){}
+    public Destinos (String nome, String descricao){
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     @Override
     public String toString() {
         return "Destinos [id_destino=" + id_destino + ", nome=" + nome + ", descricao=" + descricao + "]";
