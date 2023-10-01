@@ -12,6 +12,48 @@ public class Compra {
     private Destinos destino;
     private Usuario usuario;
     private Vendedor vendedor;
+    private int id_compra;
+    
+    //contrutores
+
+    public Compra() {
+    }
+    public Compra(BigDecimal valor, int qnt_pessoas, String tipo_pacote, BigDecimal comissao, Date data_fim, Date data_inicio, Destinos destino, Usuario usuario, Vendedor vendedor) {
+        this.valor = valor;
+        this.qnt_pessoas = qnt_pessoas;
+        this.tipo_pacote = tipo_pacote;
+        this.comissao = comissao;
+        this.data_fim = data_fim;
+        this.data_inicio = data_inicio;
+        this.destino = destino;
+        this.usuario = usuario;
+        this.vendedor = vendedor;
+    }        
+    public Compra(BigDecimal valor, int qnt_pessoas, String tipo_pacote, Date data_fim, Date data_inicio, Destinos destino, Usuario usuario) {
+        this.valor = valor;
+        this.qnt_pessoas = qnt_pessoas;
+        this.tipo_pacote = tipo_pacote;
+        this.data_fim = data_fim;
+        this.data_inicio = data_inicio;
+        this.destino = destino;
+        this.usuario = usuario;
+    }
+        
+
+
+
+
+
+
+
+
+    //getters e setters
+    public int getId_compra() {
+        return id_compra;
+    }
+    public void setId_compra(int id_compra) {
+        this.id_compra = id_compra;
+    }
     public BigDecimal getValor() {
         return valor;
     }

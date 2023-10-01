@@ -1,3 +1,5 @@
+import DAO.CompraDAO;
+import entity.Compra;
 import querys.ListarTabelas;
 
 public class App {
@@ -116,6 +118,16 @@ public class App {
         // new ListarTabelas().listarVendedorID("3");
         // System.out.println("-------------");
         // new ListarTabelas().listarDestino();
+        
+        
+        
+        
+        Compra compra = new Compra();
+
+
+
+
+        new CompraDAO().cadastrarCompra(null);
         System.out.println("-------------");
         new ListarTabelas().listarCompras();
         System.out.println("-------------");
