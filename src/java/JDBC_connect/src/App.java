@@ -1,5 +1,7 @@
 import DAO.CompraDAO;
+import DAO.UsuarioDAO;
 import entity.Compra;
+import entity.Usuario;
 import querys.ListarTabelas;
 
 public class App {
@@ -120,14 +122,12 @@ public class App {
         // new ListarTabelas().listarDestino();
         
         
-        
-        
-        Compra compra = new Compra();
+        Usuario usuarioRecuperadoDoDB = new UsuarioDAO().buscarUsuarioPorId(1);
+        System.out.println(usuarioRecuperadoDoDB);
 
 
 
 
-        new CompraDAO().cadastrarCompra(null);
         System.out.println("-------------");
         new ListarTabelas().listarCompras();
         System.out.println("-------------");

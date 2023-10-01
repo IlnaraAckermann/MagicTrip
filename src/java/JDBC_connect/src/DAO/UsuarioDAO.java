@@ -1,5 +1,7 @@
 package DAO;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import connect.Connect;
@@ -84,5 +86,44 @@ public class UsuarioDAO {
         }
     }
 
+    public Usuario buscarUsuarioPorId(int idUsuario) {
+    String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+    Connection conn = null;
+    Usuario usuario = null;
+
+    try {
+        conn = Connect.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, idUsuario); // Define o valor do parâmetro
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            usuario = new Usuario();
+            usuario.setId_usuario(rs.getInt("id_usuario"));
+            usuario.setCpf(rs.getString("cpf"));
+            usuario.setLogradouro(rs.getString("logradouro"));
+            usuario.setNumero(rs.getInt("numero"));
+            usuario.setComplemento(rs.getString("complemento"));
+            usuario.setCep(rs.getString("cep"));
+            usuario.setBairro(rs.getString("bairro"));
+            usuario.setCidade(rs.getString("cidade"));
+            usuario.setEstado(rs.getString("estado"));
+            usuario.setNome_primeiro(rs.getString("nome_primeiro"));
+            usuario.setNome_meio(rs.getString("nome_meio"));
+            usuario.setNome_ultimo(rs.getString("nome_ultimo"));
+            usuario.setEmail(rs.getString("email"));
+            usuario.setSenha(rs.getString("senha"));
+        }
+        stmt.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        // Feche a conexão com o banco de dados aqui, se necessário.
+    }
+
+    return usuario;
+}
 
 }

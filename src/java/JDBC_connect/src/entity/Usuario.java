@@ -128,4 +128,12 @@ public class Usuario {
         this.senha = senha;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario [id_usuario=" + id_usuario + ", cpf=" + cpf + ", logradouro=" + logradouro + ", numero="
+                + numero + ", complemento=" + complemento + ", cep=" + cep + ", bairro=" + bairro + ", cidade=" + cidade
+                + ", estado=" + estado + ", nome_primeiro=" + nome_primeiro + ", nome_meio=" + nome_meio
+                + ", nome_ultimo=" + nome_ultimo + ", email=" + email + ", senha=" + senha + "]";
+    }
+
 }
