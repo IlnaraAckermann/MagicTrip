@@ -1,6 +1,8 @@
 package DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import connect.Connect;
 import entity.Destinos;
@@ -60,5 +62,28 @@ public class DestinoDAO {
         }
     }
 
+ public Destinos criarDestinoExistenteId(int id) {
+    String sql = "SELECT * FROM DESTINOS WHERE id_destino = ?";
+    Connection conn = null;
+    Destinos destino = null;
+
+    try {
+        conn = Connect.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id); 
+        ResultSet rs = stmt.executeQuery();
+              if (rs.next()) {
+            destino = new Destinos();
+            destino.setId_destino(id);
+            destino.setDescricao(rs.getString("descricao"));
+            destino.setNome(rs.getString("nome"));
+        }
+        stmt.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } 
+    return destino;
+ };
 
 }

@@ -86,7 +86,7 @@ public class UsuarioDAO {
         }
     }
 
-    public Usuario buscarUsuarioPorId(int idUsuario) {
+    public Usuario criarUsuarioExistenteId(int idUsuario) {
     String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
     Connection conn = null;
     Usuario usuario = null;
@@ -119,10 +119,7 @@ public class UsuarioDAO {
 
     } catch (SQLException e) {
         e.printStackTrace();
-    } finally {
-        // Feche a conexão com o banco de dados aqui, se necessário.
     }
-
     return usuario;
 }
 

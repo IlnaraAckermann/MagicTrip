@@ -1,7 +1,7 @@
-import DAO.CompraDAO;
-import DAO.UsuarioDAO;
-import entity.Compra;
-import entity.Usuario;
+import java.math.BigDecimal;
+
+import DAO.*;
+import entity.*;
 import querys.ListarTabelas;
 
 public class App {
@@ -119,19 +119,22 @@ public class App {
         // System.out.println("-------------");
         // new ListarTabelas().listarVendedorID("3");
         // System.out.println("-------------");
-        // new ListarTabelas().listarDestino();
+        new ListarTabelas().listarDestino();
         
         
-        Usuario usuarioRecuperadoDoDB = new UsuarioDAO().buscarUsuarioPorId(1);
-        System.out.println(usuarioRecuperadoDoDB);
+        // Usuario usuarioRecuperadoDoDB = new UsuarioDAO().criarUsuarioExistenteId(1);
+        // System.out.println(usuarioRecuperadoDoDB);
+        // Destinos destinoRecuperadoDB = new DestinoDAO().criarDestinoExistenteId(1);
+        // System.out.println(destinoRecuperadoDB);
+        // Compra compra01 = new Compra(new BigDecimal("5708.98"), 5, "luxo", java.sql.Date.valueOf("2020-10-10"), java.sql.Date.valueOf("2020-10-30"), destinoRecuperadoDB, usuarioRecuperadoDoDB);
+        // new CompraDAO().cadastrarCompra(compra01);
 
 
 
 
-        System.out.println("-------------");
-        new ListarTabelas().listarCompras();
-        System.out.println("-------------");
-        System.out.println("-------------");
+        // System.out.println("-------------");
+        // new ListarTabelas().listarCompras();
+        // System.out.println("-------------");
         
     }
 }
