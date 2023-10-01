@@ -119,7 +119,7 @@ public class App {
         // System.out.println("-------------");
         // new ListarTabelas().listarVendedorID("3");
         // System.out.println("-------------");
-        new ListarTabelas().listarDestino();
+        // new ListarTabelas().listarDestino();
         
         
         // Usuario usuarioRecuperadoDoDB = new UsuarioDAO().criarUsuarioExistenteId(1);

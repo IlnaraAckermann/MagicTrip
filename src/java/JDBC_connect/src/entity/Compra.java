@@ -42,6 +42,8 @@ public class Compra {
         this.data_inicio = data_inicio;
         this.destino = destino;
         this.usuario = usuario;
+        this.vendedor = null;
+        this.comissao = null;
     }
 
     // metodos
