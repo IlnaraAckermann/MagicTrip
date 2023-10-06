@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 public class Telefone {
     private String telefone_area;

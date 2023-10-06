@@ -3,9 +3,10 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import connect.Connect;
-import entity.Destinos;
+import model.Destinos;
 
 public class DestinoDAO {
     public void cadastrarDestino(Destinos destino) {
@@ -85,5 +86,83 @@ public class DestinoDAO {
     } 
     return destino;
  };
+
+ public void listarDestino() {
+    String sql = "SELECT * FROM destinos";
+    Connection conn = null;
+    try {
+        conn = Connect.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData rsmd = rs.getMetaData();
+
+        while (rs.next()) {
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                String coluna = rsmd.getColumnName(i);
+                Object valor = rs.getObject(coluna);
+
+                System.out.println(coluna + ": " + valor);
+            }
+
+        }
+        stmt.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+public void listarDestinoNome(String nome) {
+    String parametroNome = "%" + nome + "%";
+    String sql = "SELECT * FROM destinos WHERE NOME = ?";
+    Connection conn = null;
+    try {
+        conn = Connect.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, parametroNome);
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData rsmd = rs.getMetaData();
+
+        while (rs.next()) {
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                String coluna = rsmd.getColumnName(i);
+                Object valor = rs.getObject(coluna);
+
+                System.out.println(coluna + ": " + valor);
+            }
+
+        }
+        stmt.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+public void listarDestinoNome(int id) {
+    String sql = "SELECT * FROM destinos WHERE id_destino = ?";
+    Connection conn = null;
+    try {
+        conn = Connect.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData rsmd = rs.getMetaData();
+
+        while (rs.next()) {
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                String coluna = rsmd.getColumnName(i);
+                Object valor = rs.getObject(coluna);
+                System.out.println(coluna + ": " + valor);
+            }
+
+        }
+        stmt.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
 
 }

@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 import java.sql.Date;
 import java.math.BigDecimal;

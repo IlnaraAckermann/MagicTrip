@@ -1,5 +1,8 @@
 package DAO;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import connect.Connect;
@@ -58,5 +61,54 @@ public class VendedorDAO {
             e.printStackTrace();
         }
     }
+
+    public void listarVendedor() {
+        String sql = "SELECT * FROM VENDEDOR";
+
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+     public void listarVendedorID(String vendedor_id) {
+        String sql = "SELECT * FROM vendedor WHERE id_vendedor = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, vendedor_id);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

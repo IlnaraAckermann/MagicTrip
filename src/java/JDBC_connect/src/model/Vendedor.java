@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 public class Vendedor {
     private int id_vendedor;

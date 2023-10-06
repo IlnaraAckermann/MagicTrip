@@ -1,4 +1,4 @@
-package entity;
+package model;
 
 public class Avaliacao_destino {
     private int nota;

@@ -1,8 +1,12 @@
 package DAO;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+
 import connect.Connect;
-import entity.Compra;
+import model.Compra;
 
 public class CompraDAO {
     public void cadastrarCompra(Compra compra) {
@@ -48,6 +52,30 @@ public class CompraDAO {
         }
     }
 
-    
+    public void listarCompras() {
+        String sql = "SELECT * FROM compra";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
