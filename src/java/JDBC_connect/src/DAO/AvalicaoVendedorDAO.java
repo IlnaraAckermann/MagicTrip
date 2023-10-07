@@ -7,15 +7,19 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import connect.Connect;
+import model.AvaliacaoVendedor;
 
-public class VendedorDAO {
+public class AvalicaoVendedorDAO {
 
-    public void cadastrar(int id_usuario) {
-        String sql = "INSERT INTO VENDEDOR ( ID_USUARIO ) VALUES (?)";
+    public void cadastrar(AvaliacaoVendedor avaliacaoVendedor) {
+        String sql = "INSERT INTO avaliacao_vendedor ( COMENTARIO, NOTA, ID_VENDEDOR, ID_USUARIO) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
-            ps.setInt(1, id_usuario);
+            ps.setString(1, avaliacaoVendedor.getComentario());
+            ps.setInt(2, avaliacaoVendedor.getNota());
+            ps.setInt(3, avaliacaoVendedor.getVendedor().getId_vendedor());
+            ps.setInt(4, avaliacaoVendedor.getUsuario().getId_usuario());
             ps.execute();
             ps.close();
         } catch (SQLException e) {
@@ -23,20 +27,21 @@ public class VendedorDAO {
         }
     }
 
-    public void atualizar(int id_vendedor, int id_usuario) {
-        String sql = "UPDATE VENDEDOR SET ID_USUARIO = ? WHERE ID_VENDEDOR = ?";
+    public void atualizar(String comentario, int nota,  int ID_avalicao_VENDEDOR) {
+        String sql = "UPDATE avaliacao_vendedor SET COMENTARIO = ?, NOTA = ? WHERE ID_avalicao_VENDEDOR = ?";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
-            ps.setInt(1, id_usuario);
-            ps.setInt(2, id_vendedor);
+            ps.setString(1, comentario);
+            ps.setInt(2, nota);
+            ps.setInt(3,  ID_avalicao_VENDEDOR );
 
             int linhasAfetadas = ps.executeUpdate();
 
             if (linhasAfetadas > 0) {
-                System.out.println("Usuário atualizado com sucesso!");
+                System.out.println(String.format("Avaliação %s atualizada com sucesso!", ID_avalicao_VENDEDOR));
             } else {
-                System.out.println("Nenhum usuário foi atualizado.");
+                System.out.println("Nenhuma avaliação foi atualizada.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +49,7 @@ public class VendedorDAO {
     }
 
     public void deletar(int id) {
-        String sql = "DELETE FROM VENDEDOR WHERE ID = ?";
+        String sql = "DELETE FROM avaliacao_vendedor WHERE ID = ?";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
@@ -64,7 +69,7 @@ public class VendedorDAO {
     }
 
     public void listar() {
-        String sql = "SELECT * FROM VENDEDOR";
+        String sql = "SELECT * FROM avaliacao_vendedor";
 
         Connection conn = null;
         try {
@@ -90,13 +95,13 @@ public class VendedorDAO {
         }
     }
 
-    public void listarPorID(String vendedor_id) {
-        String sql = "SELECT * FROM vendedor WHERE id_vendedor = ?";
+    public void listarPorID(int id) {
+        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_vendedor = ?";
         Connection conn = null;
         try {
             conn = Connect.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, vendedor_id);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 

@@ -5,11 +5,10 @@ import model.*;
 public class App {
     public static void main(String[] args) throws Exception {
 
-             new CompraDAO().listarCompras();
+        new UsuarioDAO().listar();
+        new DestinoDAO().listar();
+        new VendedorDAO().listar();
+        new CompraDAO().listar();
 
-
-
-
-        
     }
 }

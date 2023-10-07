@@ -1,23 +1,27 @@
 package model;
 
-public class Avaliacao_vendedor {
+public class AvaliacaoVendedor {
     private int nota;
     private String comentario;
-
+    private Usuario usuario;
     private Vendedor vendedor;
+    private int id_avalicao_vendedor;
 
-    public Avaliacao_vendedor() {
+
+    public AvaliacaoVendedor() {
     }
 
-    public Avaliacao_vendedor(int nota, Vendedor vendedor){
+    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario){
         this.nota= nota;
         this.vendedor = vendedor;
+        this.usuario = usuario;
         this.comentario = null;
     }
 
-    public Avaliacao_vendedor(int nota, Vendedor vendedor, String comentario){
+    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario, String comentario){
         this.nota= nota;
         this.vendedor = vendedor;
+        this.usuario = usuario;
         this.comentario = comentario;
     }
 
@@ -49,6 +53,22 @@ public class Avaliacao_vendedor {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getId_avalicao_vendedor() {
+        return id_avalicao_vendedor;
+    }
+
+    public void setId_avalicao_vendedor(int id_avalicao_vendedor) {
+        this.id_avalicao_vendedor = id_avalicao_vendedor;
     }
 
 }

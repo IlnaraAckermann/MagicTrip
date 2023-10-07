@@ -1,4 +1,5 @@
 package DAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import connect.Connect;
 import model.Usuario;
 
 public class UsuarioDAO {
-    public void cadastrarUsuario(Usuario usuario) {
+    public void cadastrar(Usuario usuario) {
         String sql = "INSERT INTO USUARIO ( CPF, LOGRADOURO, NUMERO, COMPLEMENTO, CEP, BAIRRO, CIDADE, ESTADO, NOME_PRIMEIRO, NOME_MEIO, NOME_ULTIMO, EMAIL, SENHA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
@@ -34,7 +35,7 @@ public class UsuarioDAO {
         }
     }
 
-    public void atualizarUsuario(int id, Usuario usuario) {
+    public void atualizar(int id, Usuario usuario) {
         String sql = "UPDATE USUARIO SET CPF = ?, LOGRADOURO = ?, NUMERO = ?, COMPLEMENTO = ?, CEP = ?, BAIRRO = ?, CIDADE = ?, ESTADO = ?, NOME_PRIMEIRO = ?, NOME_MEIO = ?, NOME_ULTIMO = ?, EMAIL = ?, SENHA = ? WHERE ID_USUARIO = ?";
         PreparedStatement ps = null;
         try {
@@ -67,7 +68,7 @@ public class UsuarioDAO {
         }
     }
 
-    public void deletarUsuario(int id) {
+    public void deletar(int id) {
         String sql = "DELETE FROM USUARIO WHERE ID_USUARIO = ?";
         PreparedStatement ps = null;
         try {
@@ -87,142 +88,147 @@ public class UsuarioDAO {
         }
     }
 
-    public Usuario criarUsuarioExistenteId(int idUsuario) {
-    String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
-    Connection conn = null;
-    Usuario usuario = null;
+    public Usuario criarExistentePorID(int idUsuario) {
+        String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        Connection conn = null;
+        Usuario usuario = null;
 
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, idUsuario); // Define o valor do parâmetro
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idUsuario); // Define o valor do parâmetro
 
-        ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
-        if (rs.next()) {
-            usuario = new Usuario();
-            usuario.setId_usuario(rs.getInt("id_usuario"));
-            usuario.setCpf(rs.getString("cpf"));
-            usuario.setLogradouro(rs.getString("logradouro"));
-            usuario.setNumero(rs.getInt("numero"));
-            usuario.setComplemento(rs.getString("complemento"));
-            usuario.setCep(rs.getString("cep"));
-            usuario.setBairro(rs.getString("bairro"));
-            usuario.setCidade(rs.getString("cidade"));
-            usuario.setEstado(rs.getString("estado"));
-            usuario.setNome_primeiro(rs.getString("nome_primeiro"));
-            usuario.setNome_meio(rs.getString("nome_meio"));
-            usuario.setNome_ultimo(rs.getString("nome_ultimo"));
-            usuario.setEmail(rs.getString("email"));
-            usuario.setSenha(rs.getString("senha"));
-        }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    return usuario;
-}
-
-public void listarUsuario() {
-    String sql = "SELECT * FROM usuario";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        ResultSet rs = stmt.executeQuery(sql);
-        ResultSetMetaData rsmd = rs.getMetaData();
-
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
-
-                System.out.println(coluna + ": " + valor);
+            if (rs.next()) {
+                usuario = new Usuario();
+                usuario.setId_usuario(rs.getInt("id_usuario"));
+                usuario.setCpf(rs.getString("cpf"));
+                usuario.setLogradouro(rs.getString("logradouro"));
+                usuario.setNumero(rs.getInt("numero"));
+                usuario.setComplemento(rs.getString("complemento"));
+                usuario.setCep(rs.getString("cep"));
+                usuario.setBairro(rs.getString("bairro"));
+                usuario.setCidade(rs.getString("cidade"));
+                usuario.setEstado(rs.getString("estado"));
+                usuario.setNome_primeiro(rs.getString("nome_primeiro"));
+                usuario.setNome_meio(rs.getString("nome_meio"));
+                usuario.setNome_ultimo(rs.getString("nome_ultimo"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
             }
+            stmt.close();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return usuario;
     }
-}
 
-public void listarUsuarioID(String usuario_id) {
-    String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, usuario_id);
-        ResultSet rs = stmt.executeQuery();
-        ResultSetMetaData rsmd = rs.getMetaData();
+    public void listar() {
+        String sql = "SELECT * FROM usuario";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
 
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
-                System.out.println(coluna + ": " + valor);
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
             }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
-public void listarUsuarioEmail(String email) {
-    String sql = "SELECT * FROM usuario WHERE EMAIL = ?";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, email);
-        ResultSet rs = stmt.executeQuery();
-        ResultSetMetaData rsmd = rs.getMetaData();
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
+    public void listarPorID(String usuario_id) {
+        String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, usuario_id);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
 
-                System.out.println(coluna + ": " + valor);
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
             }
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
-public void listarUsuarioName(String nome) {
-    String parametroNome = "%" + nome + "%";
-    String sql = "SELECT * FROM usuario WHERE nome_primeiro LIKE ? OR nome_meio LIKE ? OR nome_ultimo LIKE ?";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, parametroNome);
-        stmt.setString(2, parametroNome);
-        stmt.setString(3, parametroNome);
-        ResultSet rs = stmt.executeQuery();
-        ResultSetMetaData rsmd = rs.getMetaData();
+    public void listarPorEmail(String email) {
+        String sql = "SELECT * FROM usuario WHERE EMAIL = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
 
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
-
-                System.out.println(coluna + ": " + valor);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
             }
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
+    public void listarPorNome(String nome) {
+        String parametroNome = "%" + nome + "%";
+        String sql = "SELECT * FROM usuario WHERE nome_primeiro LIKE ? OR nome_meio LIKE ? OR nome_ultimo LIKE ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, parametroNome);
+            stmt.setString(2, parametroNome);
+            stmt.setString(3, parametroNome);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
 
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

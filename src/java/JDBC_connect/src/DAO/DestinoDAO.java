@@ -9,7 +9,7 @@ import connect.Connect;
 import model.Destinos;
 
 public class DestinoDAO {
-    public void cadastrarDestino(Destinos destino) {
+    public void cadastrar(Destinos destino) {
         String sql = "INSERT INTO DESTINOS ( NOME, DESCRICAO) VALUES (?, ?)";
         PreparedStatement ps = null;
         try {
@@ -23,7 +23,7 @@ public class DestinoDAO {
         }
     }
 
-    public void atualizarDestino(int id_destino, String nome, String descricao) {
+    public void atualizar(int id_destino, String nome, String descricao) {
         String sql = "UPDATE DESTINOS SET NOME = ?, SET DESCRICAO = ? WHERE ID_DESTINO = ?";
         PreparedStatement ps = null;
         try {
@@ -43,7 +43,7 @@ public class DestinoDAO {
         }
     }
 
-    public void deletarDestino(int id) {
+    public void deletar(int id) {
         String sql = "DELETE FROM DESTINOS WHERE ID_DESTINO = ?";
         PreparedStatement ps = null;
         try {
@@ -63,106 +63,110 @@ public class DestinoDAO {
         }
     }
 
- public Destinos criarDestinoExistenteId(int id) {
-    String sql = "SELECT * FROM DESTINOS WHERE id_destino = ?";
-    Connection conn = null;
-    Destinos destino = null;
+    public Destinos criarExistentePorID(int id) {
+        String sql = "SELECT * FROM DESTINOS WHERE id_destino = ?";
+        Connection conn = null;
+        Destinos destino = null;
 
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, id); 
-        ResultSet rs = stmt.executeQuery();
-              if (rs.next()) {
-            destino = new Destinos();
-            destino.setId_destino(id);
-            destino.setDescricao(rs.getString("descricao"));
-            destino.setNome(rs.getString("nome"));
-        }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } 
-    return destino;
- };
-
- public void listarDestino() {
-    String sql = "SELECT * FROM destinos";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        ResultSet rs = stmt.executeQuery(sql);
-        ResultSetMetaData rsmd = rs.getMetaData();
-
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
-
-                System.out.println(coluna + ": " + valor);
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                destino = new Destinos();
+                destino.setId_destino(id);
+                destino.setDescricao(rs.getString("descricao"));
+                destino.setNome(rs.getString("nome"));
             }
+            stmt.close();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
+        return destino;
+    };
 
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-}
-public void listarDestinoNome(String nome) {
-    String parametroNome = "%" + nome + "%";
-    String sql = "SELECT * FROM destinos WHERE NOME = ?";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, parametroNome);
-        ResultSet rs = stmt.executeQuery(sql);
-        ResultSetMetaData rsmd = rs.getMetaData();
+    public void listar() {
+        String sql = "SELECT * FROM destinos";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
 
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
 
-                System.out.println(coluna + ": " + valor);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
             }
+            stmt.close();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
-public void listarDestinoNome(int id) {
-    String sql = "SELECT * FROM destinos WHERE id_destino = ?";
-    Connection conn = null;
-    try {
-        conn = Connect.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, id);
-        ResultSet rs = stmt.executeQuery(sql);
-        ResultSetMetaData rsmd = rs.getMetaData();
+    public void listarPorNome(String nome) {
+        String parametroNome = "%" + nome + "%";
+        String sql = "SELECT * FROM destinos WHERE NOME = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, parametroNome);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
 
-        while (rs.next()) {
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                String coluna = rsmd.getColumnName(i);
-                Object valor = rs.getObject(coluna);
-                System.out.println(coluna + ": " + valor);
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
             }
+            stmt.close();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        stmt.close();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
+    public void listarPorNome(int id) {
+        String sql = "SELECT * FROM destinos WHERE id_destino = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
 
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

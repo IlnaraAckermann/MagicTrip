@@ -1,17 +1,17 @@
 package model;
 
-public class Avaliacao_destino {
+public class AvaliacaoDestino {
     private int nota;
     private String comentario;
     private Destinos destino;
 
-    public Avaliacao_destino(){}
-    public Avaliacao_destino(int nota, Destinos destino){
+    public AvaliacaoDestino(){}
+    public AvaliacaoDestino(int nota, Destinos destino){
         this.nota= nota;
         this.destino = destino;
         this.comentario = null;
     }
-    public Avaliacao_destino(int nota, Destinos destino, String comentario){
+    public AvaliacaoDestino(int nota, Destinos destino, String comentario){
         this.nota= nota;
         this.destino = destino;
         this.comentario = comentario;

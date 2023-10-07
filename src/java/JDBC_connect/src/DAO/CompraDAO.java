@@ -9,7 +9,7 @@ import connect.Connect;
 import model.Compra;
 
 public class CompraDAO {
-    public void cadastrarCompra(Compra compra) {
+    public void cadastrar(Compra compra) {
         String sql = "INSERT INTO COMPRA ( VALOR, QT_PESSOAS, TIPO_PACOTE, COMMISSAO, DATA_FIM, DATA_INICIO, ID_DESTINO, ID_VENDEDOR, ID_USUARIO ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
@@ -30,7 +30,7 @@ public class CompraDAO {
         }
     }
 
-    public void atualizarCompra(Compra compra, int id_compra) {
+    public void atualizar(Compra compra, int id_compra) {
         String sql = "UPDATE COMPRA SET VALOR = ?, QT_PESSOAS = ?, TIPO_PACOTE = ?, COMMISSAO = ?, DATA_FIM = ?, DATA_INICIO = ?, ID_DESTINO = ?, ID_VENDEDOR = ?, ID_USUARIO = ? WHERE ID_COMPRA = ?";
         PreparedStatement ps = null;
         try {
@@ -52,7 +52,7 @@ public class CompraDAO {
         }
     }
 
-    public void listarCompras() {
+    public void listar() {
         String sql = "SELECT * FROM compra";
         Connection conn = null;
         try {
@@ -62,12 +62,14 @@ public class CompraDAO {
             ResultSetMetaData rsmd = rs.getMetaData();
 
             while (rs.next()) {
+                System.out.println("-------------------");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     String coluna = rsmd.getColumnName(i);
                     Object valor = rs.getObject(coluna);
 
                     System.out.println(coluna + ": " + valor);
                 }
+                System.out.println("-------------------");
 
             }
             stmt.close();
