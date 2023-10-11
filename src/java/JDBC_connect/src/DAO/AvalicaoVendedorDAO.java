@@ -27,14 +27,14 @@ public class AvalicaoVendedorDAO {
         }
     }
 
-    public void atualizar(String comentario, int nota,  int ID_avalicao_VENDEDOR) {
+    public void atualizar(String comentario, int nota, int ID_avalicao_VENDEDOR) {
         String sql = "UPDATE avaliacao_vendedor SET COMENTARIO = ?, NOTA = ? WHERE ID_avalicao_VENDEDOR = ?";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
             ps.setString(1, comentario);
             ps.setInt(2, nota);
-            ps.setInt(3,  ID_avalicao_VENDEDOR );
+            ps.setInt(3, ID_avalicao_VENDEDOR);
 
             int linhasAfetadas = ps.executeUpdate();
 
@@ -78,14 +78,18 @@ public class AvalicaoVendedorDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Todas as Avaliações");
+            System.out.println("--------------------------");
+
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
 
             }
             stmt.close();
@@ -96,6 +100,35 @@ public class AvalicaoVendedorDAO {
     }
 
     public void listarPorID(int id) {
+        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_avalicao_vendedor = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("--------------------------");
+            System.out.println("Avaliações do id: " + id);
+            System.out.println("--------------------------");
+            while (rs.next()) {
+                System.out.println(" ");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("\n--------------------------");
+
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void listarPorVendedor(int id) {
         String sql = "SELECT * FROM avaliacao_vendedor WHERE id_vendedor = ?";
         Connection conn = null;
         try {
@@ -105,14 +138,47 @@ public class AvalicaoVendedorDAO {
             ResultSet rs = stmt.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Avaliações do Vendedor id: " + id);
+            System.out.println("--------------------------");
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
+
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void listarPorUsuario(int id) {
+        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_usuario = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("--------------------------");
+            System.out.println("Avaliações do Usuario id: " + id);
+            System.out.println("--------------------------");
+            while (rs.next()) {
+                System.out.println(" ");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
+                    Object valor = rs.getObject(coluna);
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("\n--------------------------");
+
             }
             stmt.close();
         } catch (SQLException e) {

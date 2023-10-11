@@ -96,15 +96,18 @@ public class DestinoDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Todos os Destinos");
+            System.out.println("--------------------------");
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
-
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
+
             }
             stmt.close();
 
@@ -124,15 +127,17 @@ public class DestinoDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Destinos : " + nome);
+            System.out.println("--------------------------");
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
-
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
 
             }
             stmt.close();
@@ -142,7 +147,7 @@ public class DestinoDAO {
         }
     }
 
-    public void listarPorNome(int id) {
+    public void listarPorID(int id) {
         String sql = "SELECT * FROM destinos WHERE id_destino = ?";
         Connection conn = null;
         try {
@@ -152,14 +157,18 @@ public class DestinoDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+
+            System.out.println("--------------------------");
+            System.out.println("Destino id : " + id);
+            System.out.println("--------------------------");
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
 
             }
             stmt.close();

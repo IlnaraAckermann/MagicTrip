@@ -61,6 +61,40 @@ public class CompraDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Todas as Compras");
+            System.out.println("--------------------------");
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void listarPorID(int id) {
+        String sql = "SELECT * FROM compra where id_compra = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("--------------------------");
+            System.out.println("Compra id: " + id);
+            System.out.println("--------------------------");
             while (rs.next()) {
                 System.out.println("-------------------");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
@@ -79,5 +113,65 @@ public class CompraDAO {
         }
     }
 
+    public void listarPorUsuario(int id) {
+        String sql = "SELECT * FROM compra where id_usuario = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Compra Usuario id: " + id);
+            System.out.println("--------------------------");
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void listarPorVendedor(int id) {
+        String sql = "SELECT * FROM compra where id_vendedor = ?";
+        Connection conn = null;
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("--------------------------");
+            System.out.println("Compra Vendedor id: " + id);
+            System.out.println("--------------------------");
+            while (rs.next()) {
+                System.out.println("-------------------");
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    String coluna = rsmd.getColumnName(i);
+                    Object valor = rs.getObject(coluna);
+
+                    System.out.println(coluna + ": " + valor);
+                }
+                System.out.println("-------------------");
+
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

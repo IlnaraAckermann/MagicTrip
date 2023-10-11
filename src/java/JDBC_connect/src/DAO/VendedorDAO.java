@@ -73,14 +73,18 @@ public class VendedorDAO {
             ResultSet rs = stmt.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Todos os Vendedores");
+            System.out.println("--------------------------");
+
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
 
             }
             stmt.close();
@@ -100,14 +104,19 @@ public class VendedorDAO {
             ResultSet rs = stmt.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
+            System.out.println("--------------------------");
+            System.out.println("Vendedores id: " + vendedor_id);
+            System.out.println("--------------------------");
+
             while (rs.next()) {
-                System.out.println("-------------------");
+                System.out.println(" ");
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String coluna = rsmd.getColumnName(i);
+                    String coluna = rsmd.getColumnName(i).toUpperCase();
                     Object valor = rs.getObject(coluna);
                     System.out.println(coluna + ": " + valor);
                 }
-                System.out.println("-------------------");
+                System.out.println("\n--------------------------");
+
             }
             stmt.close();
         } catch (SQLException e) {
