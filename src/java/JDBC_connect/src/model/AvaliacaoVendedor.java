@@ -7,28 +7,21 @@ public class AvaliacaoVendedor {
     private Vendedor vendedor;
     private int id_avalicao_vendedor;
 
-
     public AvaliacaoVendedor() {
     }
 
-    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario){
-        this.nota= nota;
+    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario) {
+        this.nota = nota;
         this.vendedor = vendedor;
         this.usuario = usuario;
         this.comentario = null;
     }
 
-    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario, String comentario){
-        this.nota= nota;
+    public AvaliacaoVendedor(int nota, Vendedor vendedor, Usuario usuario, String comentario) {
+        this.nota = nota;
         this.vendedor = vendedor;
         this.usuario = usuario;
         this.comentario = comentario;
-    }
-
-    @Override
-    public String toString() {
-        return "Avaliacao_vendedor [nota=" + nota + ", comentario=" + comentario + ", id_vendedor="
-                + vendedor.getId_vendedor() + "]";
     }
 
     public Vendedor getVendedor() {
@@ -69,6 +62,13 @@ public class AvaliacaoVendedor {
 
     public void setId_avalicao_vendedor(int id_avalicao_vendedor) {
         this.id_avalicao_vendedor = id_avalicao_vendedor;
+    }
+
+    @Override
+    public String toString() {
+        return "AvaliacaoVendedor [nota=" + nota + ", \ncomentario=" + comentario + ", \nusuario=" + usuario.getId_usuario()
+                + ", \nvendedor="
+                + vendedor.getId_vendedor() + ", \nid_avalicao_vendedor=" + id_avalicao_vendedor + "]";
     }
 
 }

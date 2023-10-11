@@ -7,19 +7,19 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import connect.Connect;
-import model.AvaliacaoVendedor;
+import model.AvaliacaoDestino;
 
-public class AvalicaoVendedorDAO {
+public class AvalicaoDestinoDAO {
 
-    public void cadastrar(AvaliacaoVendedor avaliacaoVendedor) {
-        String sql = "INSERT INTO avaliacao_vendedor ( COMENTARIO, NOTA, ID_VENDEDOR, ID_USUARIO) VALUES (?, ?, ?, ?)";
+    public void cadastrar(AvaliacaoDestino avaliacao) {
+        String sql = "INSERT INTO avaliacao_destinos ( COMENTARIO, NOTA, ID_DESTINO, ID_USUARIO) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
-            ps.setString(1, avaliacaoVendedor.getComentario());
-            ps.setInt(2, avaliacaoVendedor.getNota());
-            ps.setInt(3, avaliacaoVendedor.getVendedor().getId_vendedor());
-            ps.setInt(4, avaliacaoVendedor.getUsuario().getId_usuario());
+            ps.setString(1, avaliacao.getComentario());
+            ps.setInt(2, avaliacao.getNota());
+            ps.setInt(3, avaliacao.getDestino().getId_destino());
+            ps.setInt(4, avaliacao.getUsuario().getId_usuario());
             ps.execute();
             ps.close();
         } catch (SQLException e) {
@@ -28,7 +28,7 @@ public class AvalicaoVendedorDAO {
     }
 
     public void atualizar(String comentario, int nota, int id) {
-        String sql = "UPDATE avaliacao_vendedor SET COMENTARIO = ?, NOTA = ? WHERE ID_avalicao_VENDEDOR = ?";
+        String sql = "UPDATE avaliacao_destinos SET COMENTARIO = ?, NOTA = ? WHERE ID_avalicao_destino = ?";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
@@ -49,7 +49,7 @@ public class AvalicaoVendedorDAO {
     }
 
     public void deletar(int id) {
-        String sql = "DELETE FROM avaliacao_vendedor WHERE ID = ?";
+        String sql = "DELETE FROM avaliacao_destinos WHERE ID = ?";
         PreparedStatement ps = null;
         try {
             ps = Connect.getConnection().prepareStatement(sql);
@@ -69,7 +69,7 @@ public class AvalicaoVendedorDAO {
     }
 
     public void listar() {
-        String sql = "SELECT * FROM avaliacao_vendedor";
+        String sql = "SELECT * FROM avaliacao_destinos";
 
         Connection conn = null;
         try {
@@ -100,7 +100,7 @@ public class AvalicaoVendedorDAO {
     }
 
     public void listarPorID(int id) {
-        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_avalicao_vendedor = ?";
+        String sql = "SELECT * FROM avaliacao_destinos WHERE id_avalicao_destino = ?";
         Connection conn = null;
         try {
             conn = Connect.getConnection();
@@ -128,8 +128,8 @@ public class AvalicaoVendedorDAO {
         }
     }
 
-    public void listarPorVendedor(int id) {
-        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_vendedor = ?";
+    public void listarPorDestino(int id) {
+        String sql = "SELECT * FROM avaliacao_destinos WHERE id_destino = ?";
         Connection conn = null;
         try {
             conn = Connect.getConnection();
@@ -139,7 +139,7 @@ public class AvalicaoVendedorDAO {
             ResultSetMetaData rsmd = rs.getMetaData();
 
             System.out.println("--------------------------");
-            System.out.println("Avaliações do Vendedor id: " + id);
+            System.out.println("Avaliações do Destino id: " + id);
             System.out.println("--------------------------");
             while (rs.next()) {
                 System.out.println(" ");
@@ -158,7 +158,7 @@ public class AvalicaoVendedorDAO {
     }
 
     public void listarPorUsuario(int id) {
-        String sql = "SELECT * FROM avaliacao_vendedor WHERE id_usuario = ?";
+        String sql = "SELECT * FROM avaliacao_destinos WHERE id_usuario = ?";
         Connection conn = null;
         try {
             conn = Connect.getConnection();

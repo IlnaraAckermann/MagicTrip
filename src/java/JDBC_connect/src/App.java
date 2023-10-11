@@ -7,9 +7,10 @@ public class App {
 
         // new UsuarioDAO().listar();
         // new DestinoDAO().listar();
-        new VendedorDAO().listar();
+        // new VendedorDAO().listar();
         // new CompraDAO().listar();
         // new AvalicaoVendedorDAO().listar();
+        // new AvalicaoDestinoDAO().listar();
 
     }
 }
