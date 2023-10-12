@@ -7,6 +7,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import connect.Connect;
+import model.Usuario;
+import model.Vendedor;
 
 public class VendedorDAO {
 
@@ -62,6 +64,30 @@ public class VendedorDAO {
             e.printStackTrace();
         }
     }
+
+    public Vendedor criarExistentePorID(int id) {
+        String sql = "SELECT * FROM Vendedor WHERE id_vendedor = ?";
+        Connection conn = null;
+        Vendedor vendedor = null;
+
+        try {
+            conn = Connect.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                vendedor = new Vendedor();
+                vendedor.setId_vendedor(id);
+                Usuario usuario = new UsuarioDAO().criarExistentePorID(rs.getInt("id_usuario"));
+                vendedor.setUsuario(usuario);
+            }
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vendedor;
+    };
 
     public void listar() {
         String sql = "SELECT * FROM VENDEDOR";

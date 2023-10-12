@@ -52,6 +52,26 @@ public class CompraDAO {
         }
     }
 
+    public void deletar(int id) {
+        String sql = "DELETE FROM COMPRA WHERE ID_COMPRA = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = Connect.getConnection().prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int linhasAfetadas = ps.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                System.out.println("Vendedor deletado com sucesso!");
+            } else {
+                System.out.println("Nenhum vendedor foi deletado. Verifique o ID.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void listar() {
         String sql = "SELECT * FROM compra";
         Connection conn = null;
