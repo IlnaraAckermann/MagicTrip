@@ -35,10 +35,10 @@ public class App {
             MostrarMenuCompras();
                 break;
             case 5:
-                // todo MostrarMenuAvaliacaoVendedor();
+                MostrarMenuAvaliacaoVendedor();
                 break;
             case 6:
-                // todo MostrarMenuAvaliacaoDestino();
+                MostrarMenuAvaliacaoDestino();
                 break;
             case 7:
                 System.out.println("Saindo do menu.");
@@ -401,5 +401,124 @@ public class App {
 
     }
 
+    //----- METODOS MENU AVALIAÇÃO DE VENDEDORES
+    private static void MostrarMenuAvaliacaoVendedor() {
+        while (true) {
+            System.out.println(
+                "Escolha uma opção \n1 Cadastrar nova avaliação de vendedor \n2 Atualizar avaliação de vendedor Existente \n3 Deletar avaliação de vendedor \n4 Listar todas as avaliações de vendedores \n5 Sair");
+                int op = scanner.nextInt();
+                
+                switch (op) {
+                case 1:
+                    CriarNovaAvaliacaoVendedor();
+                    break;
+                case 2:
+                    AtualizarAvaliacaoVendedor();
+                    break;
+                case 3:
+                    System.out.println("Digite o ID da Avaliação de vendedor a ser deletada");
+                    int id = scanner.nextInt();
+                    System.out.println("Deletando Avaliacao Vendedor de ID " + id);
+                    new AvalicaoVendedorDAO().deletar(id);
+                    break;
+                case 4:
+                    new AvalicaoVendedorDAO().listar();
+                    break;
+                case 5:
+                    System.out.println("Saindo do menu de avaliação de vendedor.");
+                    return;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
+        }
+    }
+
+    private static void CriarNovaAvaliacaoVendedor() {
+        System.out.println("Informe os dados para criar uma nova avaliacao de vendedor:");
+        System.out.print("Nota: ");
+        int nota = scanner.nextInt();
+        System.out.print("Digite id do usuário a ser avaliado: ");
+        int id_usuario = scanner.nextInt();
+        System.out.print("Digite o id vendedor que esta avaliando: ");
+        int id_vendedor = scanner.nextInt();
+        System.out.print("Digite o comentário: ");
+        String comentario = scanner.nextLine();
+        Usuario usuario = new UsuarioDAO().criarExistentePorID(id_usuario);
+        Vendedor vendedor = new VendedorDAO().criarExistentePorID(id_vendedor);
+        AvaliacaoVendedor avaliacao = new AvaliacaoVendedor(nota, vendedor, usuario, comentario);
+        new AvalicaoVendedorDAO().cadastrar(avaliacao);
+    }
+
+    private static void AtualizarAvaliacaoVendedor() {
+        System.out.println("Qual o id da Avaliação de vendedor a ser atualizado");
+        int id = scanner.nextInt();
+        System.out.println("Informe os dados para atualizar a avaliação:");
+        System.out.print("Nota: ");
+        int nota = scanner.nextInt();
+        System.out.print("Digite o comentário: ");
+        String comentario = scanner.nextLine();
+        new AvalicaoVendedorDAO().atualizar(comentario, nota, id);
+    }
+
+    //----- METODOS MENU AVALIAÇÃO DE Destinos
+    private static void MostrarMenuAvaliacaoDestino() {
+        while (true) {
+            System.out.println(
+                "Escolha uma opção \n1 Cadastrar nova avaliação de destino \n2 Atualizar avaliação de destino Existente \n3 Deletar avaliação de destino \n4 Listar todas as avaliações de destino \n5 Sair");
+                int op = scanner.nextInt();
+                
+                switch (op) {
+                case 1:
+                    CriarNovaAvaliacaoDestino();
+                    break;
+                case 2:
+                    AtualizarAvaliacaoDestino();
+                    break;
+                case 3:
+                    System.out.println("Digite o ID da Avaliação de Destino a ser deletada");
+                    int id = scanner.nextInt();
+                    System.out.println("Deletando Avaliacao Destino de ID " + id);
+                    new AvalicaoDestinoDAO().deletar(id);
+                    break;
+                case 4:
+                    new AvalicaoDestinoDAO().listar();
+                    break;
+                case 5:
+                    System.out.println("Saindo do menu de avaliação de Destino.");
+                    return;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
+        }
+    }
+
+    private static void CriarNovaAvaliacaoDestino() {
+        System.out.println("Informe os dados para criar uma nova avaliacao de destino:");
+        System.out.print("Nota: ");
+        int nota = scanner.nextInt();
+        System.out.print("Digite id do destino a ser avaliado: ");
+        int id_destino = scanner.nextInt();
+        System.out.print("Digite o id usuário que esta avaliando: ");
+        int id_usuario = scanner.nextInt();
+        System.out.print("Digite o comentário: ");
+        String comentario = scanner.nextLine();
+        Usuario usuario = new UsuarioDAO().criarExistentePorID(id_usuario);
+        Destinos destino = new DestinoDAO().criarExistentePorID(id_destino);
+        AvaliacaoDestino avaliacao = new AvaliacaoDestino(nota, destino, usuario, comentario);
+        new AvalicaoDestinoDAO().cadastrar(avaliacao);
+    }
+
+    private static void AtualizarAvaliacaoDestino() {
+        System.out.println("Qual o id da Avaliação de destino a ser atualizado");
+        int id = scanner.nextInt();
+        System.out.println("Informe os dados para atualizar a avaliação:");
+        System.out.print("Nota: ");
+        int nota = scanner.nextInt();
+        System.out.print("Digite o comentário: ");
+        String comentario = scanner.nextLine();
+        new AvalicaoDestinoDAO().atualizar(comentario, nota, id);
+    }
 
 }
