@@ -17,7 +17,9 @@
 	<main class="container">
 
 	<h1>Cadastro de Cliente</h1>
-	<form action="./CadastrarUsuario" method="post">
+	<form action="./EditarUsuario" method="post">
+	
+		<input type="hidden" name="id" value="${user.id_usuario}">
 		<div class="form-floating mb-3">
 			<input type="text" id="nome" name="nome" class="form-control"
 				required> <label for="nome">Nome:</label>

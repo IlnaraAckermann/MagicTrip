@@ -39,35 +39,27 @@
 
 	<main class="container-fluid">
 
-		<h2>Lista de Destinos</h2>
-		<table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Id</th>
-					<th scope="col">Nome</th>
-					<th scope="col">Descrição</th>
-				</tr>
-			</thead>
-			<tbody>
-				<jstl:forEach items="${listaDestinos}" var="destino">
-					<tr>
-						<td>${destino.id_destino}</td>
-						<td>${destino.nome}</td>
-						<td>${destino.descricao}</td>
-						<td><a href="./EditarDestino?id=${destino.id_destino}"
-							class="btn btn-success"> <i class="fa-solid fa-pen-to-square"></i>
-						</a> <a href="./ExcluirDestino?id=${destino.id_destino}"
-							onclick="return confirm('Deseja Excluir?')"
-							class="btn btn-danger"> <i class="fa-solid fa-trash"></i>
-						</a></td>
+		<main class="container-fluid">
+			<h2>Cadastro de Destino</h2>
 
-					</tr>
+			<form action="./CadastrarDestino" method="post">
+				<div class="mb-3">
+					<label for="nome" class="form-label">Nome do Destino:</label> <input
+						type="text" class="form-control" id="nome" name="nome" required>
+				</div>
+				<div class="mb-3">
+					<label for="descricao" class="form-label">Descrição do
+						Destino:</label>
+					<textarea class="form-control" id="descricao" name="descricao"
+						rows="3" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</form>
 
-				</jstl:forEach>
+			<a href="./ListarDestinos" class="btn btn-secondary mt-3">Voltar
+				para Lista de Destinos</a>
+		</main>
 
-			</tbody>
-		</table>		
-		 <a href="./cadastrardestino.jsp" class="btn btn-primary">Adicionar Destino</a>
 	</main>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>

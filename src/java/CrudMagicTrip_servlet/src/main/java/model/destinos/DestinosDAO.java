@@ -23,11 +23,11 @@ public class DestinosDAO {
 	}
 
 	public void atualizar(Destinos destino) {
-		String sql = "UPDATE DESTINOS SET NOME = ?, SET DESCRICAO = ? WHERE ID_DESTINO = ?";
+		String sql = "UPDATE DESTINOS SET NOME = ?, DESCRICAO = ? WHERE ID_DESTINO = ?";
 		try (Connection conn = Connect.getMySQLConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
 			ps.setString(1, destino.getNome());
 			ps.setString(2, destino.getDescricao());
-			ps.setInt(13, destino.getId_destino());
+			ps.setInt(3, destino.getId_destino());
 			ps.execute();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -51,6 +51,7 @@ public class DestinosDAO {
 		try (Connection conn = Connect.getMySQLConnection();
 				PreparedStatement ps = conn.prepareStatement(sql);
 				ResultSet rs = ps.executeQuery()) {
+			
 			while (rs.next()) {
 				Destinos destino = new Destinos();
 				destino.setId_destino(rs.getInt("id_destino"));
@@ -95,9 +96,9 @@ public class DestinosDAO {
 				ps.setInt(1, id);
 				try (ResultSet rs = ps.executeQuery()) {
 					if (rs.next()) {
-						destino.setDescricao("descricao");
-						destino.setNome("nome");
-						destino.setId_destino(rs.getInt("id_destino"));
+	                    destino.setDescricao(rs.getString("descricao"));
+	                    destino.setNome(rs.getString("nome"));
+	                    destino.setId_destino(rs.getInt("id_destino"));
 					}
 				}
 			}
