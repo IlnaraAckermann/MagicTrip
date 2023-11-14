@@ -1,5 +1,6 @@
 package model;
 
+import model.destinos.Destinos;
 import model.usuario.Usuario;
 
 public class AvaliacaoDestino {

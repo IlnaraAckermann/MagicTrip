@@ -1,4 +1,4 @@
-package model;
+package model.destinos;
 
 public class Destinos {
 

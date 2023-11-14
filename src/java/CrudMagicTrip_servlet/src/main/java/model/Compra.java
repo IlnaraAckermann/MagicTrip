@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Date;
 
+import model.destinos.Destinos;
 import model.usuario.Usuario;
 
 import java.math.BigDecimal;

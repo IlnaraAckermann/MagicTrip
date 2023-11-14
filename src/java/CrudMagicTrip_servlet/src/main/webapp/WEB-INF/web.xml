@@ -69,4 +69,44 @@
     <servlet-name>editarUsuario</servlet-name>
     <url-pattern>/editarUsuario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListarDestinos</display-name>
+    <servlet-name>ListarDestinos</servlet-name>
+    <servlet-class>controller.destinos.ListarDestinos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarDestinos</servlet-name>
+    <url-pattern>/ListarDestinos</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExcluirDestino</display-name>
+    <servlet-name>ExcluirDestino</servlet-name>
+    <servlet-class>controller.destinos.ExcluirDestino</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExcluirDestino</servlet-name>
+    <url-pattern>/ExcluirDestino</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarDestino</display-name>
+    <servlet-name>EditarDestino</servlet-name>
+    <servlet-class>controller.destinos.EditarDestino</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarDestino</servlet-name>
+    <url-pattern>/EditarDestino</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CadastrarDestino</display-name>
+    <servlet-name>CadastrarDestino</servlet-name>
+    <servlet-class>controller.destinos.CadastrarDestino</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastrarDestino</servlet-name>
+    <url-pattern>/CadastrarDestino</url-pattern>
+  </servlet-mapping>
 </web-app>

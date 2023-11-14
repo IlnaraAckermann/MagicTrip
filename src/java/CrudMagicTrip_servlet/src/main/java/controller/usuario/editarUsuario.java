@@ -78,7 +78,7 @@ public class editarUsuario extends HttpServlet {
 			udao.atualizar(user);
 			//RequestDispatcher rd = request.getRequestDispatcher("/home");
 //			rd.forward(request, response);
-			response.sendRedirect("./home");
+			response.sendRedirect("./ListarUsuarios");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

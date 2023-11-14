@@ -17,24 +17,25 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
 			<a class="navbar-brand" href="#">CRUD JSP</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarNav" aria-controls="navbarNav"
-				aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link" href="./home">Usuario</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="./Destino">Destinos</a>
-					</li>
+					<li class="nav-item active"><a class="nav-link"
+						href="./ListarUsuarios">Usuario</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="./ListarDestinos">Destinos</a></li>
 					<li class="nav-item"><a class="nav-link" href="./Vendedores	">Vendedores</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
-	
+
 	<main class="container-fluid">
 
 		<h2>Lista de Usuários</h2>
@@ -79,5 +80,7 @@
 			</tbody>
 		</table>
 	</main>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

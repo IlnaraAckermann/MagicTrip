@@ -2,7 +2,6 @@ package controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,11 +26,11 @@ public class Autenticador extends HttpServlet {
 			}
 	        if (isValid) {
 	            // Se as credenciais são válidas, redirecionar para a página de listagem
-	            response.sendRedirect("./home");
+	            response.sendRedirect("./ListarUsuarios");
 	        } else {
 	            // Se as credenciais são inválidas, redirecionar de volta para a página de login
 	        	request.setAttribute("loginFailed", true);
-	        	RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+	        	RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarUsuarios");
 	            dispatcher.forward(request, response);
 	        }
 	}
