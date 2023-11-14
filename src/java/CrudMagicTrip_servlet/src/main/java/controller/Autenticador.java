@@ -12,27 +12,29 @@ import java.io.IOException;
 public class Autenticador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
-    
-    public Autenticador() { }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String email = request.getParameter("email");
-	        String password = request.getParameter("password");
-	        boolean isValid = false;
-			try {
-				isValid = usuarioDAO.autenticarCredenciais(email, password);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-	        if (isValid) {
-	            // Se as credenciais são válidas, redirecionar para a página de listagem
-	            response.sendRedirect("./ListarUsuarios");
-	        } else {
-	            // Se as credenciais são inválidas, redirecionar de volta para a página de login
-	        	request.setAttribute("loginFailed", true);
-	        	RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarUsuarios");
-	            dispatcher.forward(request, response);
-	        }
+	public Autenticador() {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		boolean isValid = false;
+		try {
+			isValid = usuarioDAO.autenticarCredenciais(email, password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (isValid) {
+			// Se as credenciais são válidas, redirecionar para a página de listagem
+			response.sendRedirect("./ListarUsuarios");
+		} else {
+			// Se as credenciais são inválidas, redirecionar de volta para a página de login
+			request.setAttribute("loginFailed", true);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }
