@@ -1,0 +1,32 @@
+# Java Puro
+*.class
+target/
+.settings/
+.idea/
+*.log
+*.tmp
+
+# Java Spring
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.iml
+*.log
+.classpath
+.project
+.settings/
+.idea/
+*.iws
+.springBeans
+
+
+
+# React
+build/
+dist/
+node_modules/
+.idea/
+*.iml
+.cache/
