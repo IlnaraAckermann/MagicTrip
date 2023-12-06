@@ -1,5 +1,6 @@
 package com.magictrip.api.models;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -15,7 +16,8 @@ import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "compra")
-public class CompraModel {
+public class CompraModel implements Serializable {
+    private static final long serialVersionUID = 1;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCompra;

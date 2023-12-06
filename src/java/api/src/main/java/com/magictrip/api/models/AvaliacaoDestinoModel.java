@@ -1,5 +1,7 @@
 package com.magictrip.api.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +13,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Avaliacao_Destino")
-public class AvaliacaoDestinoModel {
+public class AvaliacaoDestinoModel implements Serializable {
+    private static final long serialVersionUID = 1;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_avaliacao_vendedor")
