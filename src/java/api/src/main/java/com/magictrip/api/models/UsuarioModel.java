@@ -13,14 +13,14 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="usuario")
-public class UsuarioModel implements Serializable{
+@Table(name = "usuario")
+public class UsuarioModel implements Serializable {
     private static final long serialVersionUID = 1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
-    private Long idCliente;
+    @Column(name = "id_usuario")
+    private Long idUsuario;
 
     @Column(nullable = false, unique = true, length = 14)
     private String cpf;
@@ -66,12 +66,12 @@ public class UsuarioModel implements Serializable{
         return serialVersionUID;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setIdUsuario(Long idCliente) {
+        this.idUsuario = idCliente;
     }
 
     public String getCpf() {
@@ -137,5 +137,5 @@ public class UsuarioModel implements Serializable{
     public void setEndereço(String endereço) {
         this.endereço = endereço;
     }
-    
+
 }
