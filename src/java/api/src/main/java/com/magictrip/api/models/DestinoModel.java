@@ -2,6 +2,8 @@ package com.magictrip.api.models;
 
 import java.io.Serializable;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,10 +17,10 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "destino")
-public class DestinoModel implements Serializable {
+public class DestinoModel extends RepresentationModel<DestinoModel> implements Serializable {
     private static final long serialVersionUID = 1;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_destino")
     private int idDestino;
 
