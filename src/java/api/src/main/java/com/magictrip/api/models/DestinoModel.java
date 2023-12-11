@@ -8,13 +8,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "destino")
 public class DestinoModel implements Serializable {
     private static final long serialVersionUID = 1;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_destino")
     private int idDestino;
 
@@ -23,41 +27,5 @@ public class DestinoModel implements Serializable {
 
     @Column(name = "descricao", length = 255)
     private String descricao;
-
-    public DestinoModel() {
-    }
-
-    public DestinoModel(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
-    }
-
-    public DestinoModel(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdDestino() {
-        return idDestino;
-    }
-
-    public void setIdDestino(int idDestino) {
-        this.idDestino = idDestino;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
 }
