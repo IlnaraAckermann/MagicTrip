@@ -24,7 +24,6 @@ import com.magictrip.api.models.UsuarioModel;
 import com.magictrip.api.repositories.UsuarioRepository;
 
 import jakarta.validation.Valid;
-import lombok.val;
 import lombok.var;
 
 @RestController
