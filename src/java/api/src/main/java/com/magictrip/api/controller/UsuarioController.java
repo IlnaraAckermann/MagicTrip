@@ -63,7 +63,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioRepository.save(usuarioModel));
     }
 
-    // nao é possivel fazer a sobrecarga, talvez fazer um novo endpoint
+    // nao é possivel fazer a sobrecarga, por isso fiz um novo endpoint
     /* Métopdo de post, salva vários usuarios */
     @PostMapping("/usuarios/list")
     public ResponseEntity<List<UsuarioModel>> saveUsuario(
@@ -80,27 +80,6 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUsuarios);
     }
 
-    /*
-     * @PutMapping("/usuarios/{id}")
-     * public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") Long
-     * idUsuario,
-     * 
-     * @RequestBody @Valid UsuarioRecordDto usuarioRecordDto) {
-     * Optional<UsuarioModel> usuario0 = usuarioRepository.findById(idUsuario);
-     * if (usuario0.isEmpty()) { // checks if the user exists
-     * return
-     * ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
-     * }
-     * var usuarioModel = usuario0.get();
-     * 
-     * BeanUtils.copyProperties(usuarioRecordDto, usuarioModel);
-     *
-     *
-     * return
-     * ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuarioModel
-     * ));
-     * }
-     */
 
     @PutMapping("/usuarios/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") long idUsuario,
