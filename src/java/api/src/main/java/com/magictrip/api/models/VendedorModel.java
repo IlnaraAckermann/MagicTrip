@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 public class VendedorModel implements Serializable {
   private static final long serialVersionUID = 1;
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id_vendedor")
   private int idVendedor;
 
