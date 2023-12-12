@@ -65,7 +65,7 @@ public class DestinoController {
     }
     
 @PostMapping("/destinos/list")
-    public ResponseEntity<List<DestinoModel>> saveDestino(@RequestBody @Valid List<DestinoRecordDto> destinoRecordDto) {
+    public ResponseEntity<List<DestinoModel>> saveDestinos(@RequestBody @Valid List<DestinoRecordDto> destinoRecordDto) {
         List<DestinoModel> destinosModel = new ArrayList<>();
         for (DestinoRecordDto destinoDto : destinoRecordDto){
             var destinoModel = new DestinoModel();
@@ -77,7 +77,7 @@ public class DestinoController {
     }
 
     @PutMapping("destinos/{id}")
-    public ResponseEntity<Object> updateUsuario(@PathVariable (value="id") int idDestino, @RequestBody DestinoRecordDto destinoRecordDto) {
+    public ResponseEntity<Object> updateDestino(@PathVariable (value="id") int idDestino, @RequestBody DestinoRecordDto destinoRecordDto) {
         Optional<DestinoModel> destino0 = destinoRepository.findById(idDestino);
         if (destino0.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Destino " + idDestino + " não encontrado."); 
