@@ -1,7 +1,6 @@
 package com.magictrip.api.dtos;
+import jakarta.validation.constraints.NotNull;
 
-import jakarta.validation.constraints.NotBlank;
-
-public record VendedorRecordDto(@NotBlank Long idDUsuario ) {
+public record VendedorRecordDto(@NotNull Long usuario ) {
     
 }

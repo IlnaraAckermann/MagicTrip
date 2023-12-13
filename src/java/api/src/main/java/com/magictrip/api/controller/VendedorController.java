@@ -3,7 +3,6 @@ package com.magictrip.api.controller;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.magictrip.api.dtos.VendedorRecordDto;
+import com.magictrip.api.models.UsuarioModel;
 import com.magictrip.api.models.VendedorModel;
+import com.magictrip.api.repositories.UsuarioRepository;
 import com.magictrip.api.repositories.VendedorRepository;
 
 import jakarta.validation.Valid;
@@ -29,6 +30,9 @@ import jakarta.validation.Valid;
 public class VendedorController {
     @Autowired
     VendedorRepository vendedorRepository;
+  
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     @GetMapping("/vendedores")
     public ResponseEntity<List<VendedorModel>> getAllVendedores() {
@@ -55,21 +59,9 @@ public class VendedorController {
     @PostMapping("/vendedores")
     public ResponseEntity<VendedorModel> saveVendedor(@RequestBody @Valid VendedorRecordDto vendedorRecordDto) {
         var vendedorModel = new VendedorModel();
-        BeanUtils.copyProperties(vendedorRecordDto, vendedorModel);
+        Optional<UsuarioModel> usuarioModel = usuarioRepository.findById(vendedorRecordDto.usuario());
+        vendedorModel.setUsuario(usuarioModel.get());
         return ResponseEntity.status(HttpStatus.CREATED).body(vendedorRepository.save(vendedorModel));
-    }
-
-    @PostMapping("/vendedores/list")
-    public ResponseEntity<List<VendedorModel>> saveVendedores(
-            @RequestBody @Valid List<VendedorRecordDto> vendedorRecordDto) {
-        List<VendedorModel> vendedorModels = new ArrayList<>();
-        for (VendedorRecordDto vendedordDto : vendedorRecordDto) {
-            var vendedorModel = new VendedorModel();
-            BeanUtils.copyProperties(vendedordDto, vendedorModel);
-            vendedorModels.add(vendedorModel);
-        }
-        List<VendedorModel> savedVendedores = vendedorRepository.saveAll(vendedorModels);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedVendedores);
     }
 
     @PutMapping("vendedores/{id}")
@@ -82,8 +74,8 @@ public class VendedorController {
 
         var vendedorModel = vendedor0.get();
 
-        
-        BeanUtils.copyProperties(vendedorRecordDto, vendedorModel);
+         Optional<UsuarioModel> usuarioModel = usuarioRepository.findById(vendedorRecordDto.usuario());
+          vendedorModel.setUsuario(usuarioModel.get());
 
         return ResponseEntity.status(HttpStatus.OK).body(vendedorRepository.save(vendedorModel));
     }
