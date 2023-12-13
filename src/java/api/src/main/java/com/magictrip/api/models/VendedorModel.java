@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class VendedorModel extends RepresentationModel<VendedorModel> implements
   @Column(name = "id_vendedor")
   private int idVendedor;
 
-  @ManyToOne
-  @JoinColumn(name = "idUsuario")
+  @OneToOne
+  @JoinColumn(name = "id_usuario")
   private UsuarioModel usuario;
 }
