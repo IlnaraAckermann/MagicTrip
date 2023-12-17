@@ -35,7 +35,6 @@ public class UsuarioDAO {
 			// Executa a sql para inserção dos dados
 			ps.execute();
 		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

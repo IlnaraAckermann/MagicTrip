@@ -22,7 +22,7 @@ public class DestinoModel extends RepresentationModel<DestinoModel> implements S
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_destino")
-    private int idDestino;
+    private Integer idDestino;
 
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;

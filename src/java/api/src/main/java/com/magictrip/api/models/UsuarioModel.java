@@ -1,7 +1,6 @@
 package com.magictrip.api.models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import org.springframework.hateoas.RepresentationModel;
 

@@ -1,11 +1,11 @@
 package com.magictrip.api.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,6 @@ import com.magictrip.api.repositories.ImagemDestinoRepository;
 
 import jakarta.validation.Valid;
 import lombok.var;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/imagens_destino")

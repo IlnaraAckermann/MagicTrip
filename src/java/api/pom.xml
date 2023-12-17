@@ -57,7 +57,7 @@
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-community-dialects</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>

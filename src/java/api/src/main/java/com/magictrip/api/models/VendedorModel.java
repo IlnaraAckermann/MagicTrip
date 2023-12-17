@@ -26,6 +26,11 @@ public class VendedorModel extends RepresentationModel<VendedorModel> implements
   @Column(name = "id_vendedor")
   private int idVendedor;
 
+  @Column(name = "telefone_comercial", nullable= false)
+  private int telefone; //tipo int usa menos espaço que tipo string
+  @Column(name = "email_comercial", nullable= false)
+  private String email;
+
   @OneToOne
   @JoinColumn(name = "id_usuario")
   private UsuarioModel usuario;

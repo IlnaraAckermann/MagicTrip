@@ -10,7 +10,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "Avaliacao_Destino")
 public class AvaliacaoDestinoModel implements Serializable {
@@ -18,7 +26,7 @@ public class AvaliacaoDestinoModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_avaliacao_vendedor")
-    private long idAvaliacaoVendedor;
+    private int idAvaliacaoVendedor;
 
     @Column(name = "comentario", length = 255)
     private String comentario;
@@ -34,53 +42,6 @@ public class AvaliacaoDestinoModel implements Serializable {
     @JoinColumn(name = "idDestino", nullable = false)
     private DestinoModel destino;
 
-    public AvaliacaoDestinoModel(int nota, UsuarioModel usuario, DestinoModel destino) {
-        this.nota = nota;
-        this.usuario = usuario;
-        this.destino = destino;
-    }
-
-    public AvaliacaoDestinoModel(String comentario, int nota, UsuarioModel usuario, DestinoModel destino) {
-        this.comentario = comentario;
-        this.nota = nota;
-        this.usuario = usuario;
-        this.destino = destino;
-    }
-
-    public AvaliacaoDestinoModel() {
-    }
-
-    public long getIdAvaliacaoVendedor() {
-        return idAvaliacaoVendedor;
-    }
-
-    public void setIdAvaliacaoVendedor(long idAvaliacaoVendedor) {
-        this.idAvaliacaoVendedor = idAvaliacaoVendedor;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-
-    public UsuarioModel getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioModel usuario) {
-        this.usuario = usuario;
-    }
 
     public DestinoModel getDestino() {
         return destino;
