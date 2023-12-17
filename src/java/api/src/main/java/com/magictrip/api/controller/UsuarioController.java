@@ -24,7 +24,6 @@ import com.magictrip.api.models.UsuarioModel;
 import com.magictrip.api.repositories.UsuarioRepository;
 
 import jakarta.validation.Valid;
-import lombok.var;
 
 @RestController
 public class UsuarioController {
@@ -79,7 +78,6 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUsuarios);
     }
 
-
     @PutMapping("/usuarios/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") long idUsuario,
             @RequestBody UsuarioRecordDto usuarioRecordDto) {
@@ -94,9 +92,6 @@ public class UsuarioController {
         }
         if (usuarioRecordDto.cpf() != null) {
             usuarioModel.setCpf(usuarioRecordDto.cpf());
-        }
-        if (usuarioRecordDto.dataNascimento() != null) {
-            usuarioModel.setDataNascimento(usuarioRecordDto.dataNascimento());
         }
         if (usuarioRecordDto.email() != null) {
             usuarioModel.setEmail(usuarioRecordDto.email());
@@ -123,7 +118,7 @@ public class UsuarioController {
         if (usuario0.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado.");
         }
-        usuarioRepository.delete((usuario0.get()));
+        usuarioRepository.delete(usuario0.get());
         return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado.");
     }
 };

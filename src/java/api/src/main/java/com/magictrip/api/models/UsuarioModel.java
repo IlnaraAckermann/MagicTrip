@@ -24,7 +24,7 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> implements S
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_usuario")
+    @Column(name = "id_usuario", nullable = false)
     private Long idUsuario;
 
     @Column(nullable = false, unique = true, length = 14)
@@ -47,9 +47,4 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> implements S
 
     @Column(nullable = false, length = 100)
     private String senha;
-
-    @Column(name = "data_nascimento", nullable = false)
-    private LocalDate dataNascimento;
-
-
 }
