@@ -1,22 +1,9 @@
 import DestineCard from "@/components/cards/DestineCard";
 import PageHead from "@/components/head/Head";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import getDestinos from "@/context/getDestinos";
 
-const Destinos= () => {
-  const [destinos, setDestinos] = useState([]);
- 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/destinos")
-      .then((response) => {
-        setDestinos(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar a lista de destinos:", error);
-      });
-  }, []);
-
+  const Destinos = () => {
+  const { destinos } = getDestinos();
   return (
     <>
     <PageHead titulo="MagicTrip - Viaje, sonhe, encante-se!"></PageHead>
@@ -30,7 +17,7 @@ const Destinos= () => {
         </div>
         <section className="my-5 ">
           <h2 className="text-center mb-3">Destinos Mágicos</h2>
-          <div className="d-flex gap-5 flex-wrap justify-content-around mx-auto " id="nacionais">
+          <div className="d-flex gap-5 flex-wrap justify-content-around mx-auto ">
             {destinos.map((destino, i) => (
               <DestineCard
                 key={i}
