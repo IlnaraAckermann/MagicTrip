@@ -11,7 +11,7 @@
   list-style: none;
   transition: background-color .5s;
   background-color: var(--cor-fundo);
-  color: var(--cor-texto);
+  color: var(--cor-texto) !important;
 }
 
 
@@ -140,4 +140,14 @@ nav {
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+
+#medal{
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  background-color: transparent;
+  right:0;
+  margin: 1rem;
 }

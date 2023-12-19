@@ -5,7 +5,7 @@ const DestineCard = ({ destino }) => {
 	const imgUrl = `/imgs/${idDestino}.jpg`;
 	return (
 		<>
-			<div className="card bg-dark text-white ">
+			<div className="card">
 				<Image
 					className="card-img-top"
 					src={imgUrl}
