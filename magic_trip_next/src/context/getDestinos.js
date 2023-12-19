@@ -1,7 +1,8 @@
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const getDestinos = () => {
+const GetDestinos = () => {
   const [destinos, setDestinos] = useState([]);
 
   useEffect(() => {
@@ -20,4 +21,4 @@ const getDestinos = () => {
   return { destinos };
 };
 
-export default getDestinos;
+export default GetDestinos;

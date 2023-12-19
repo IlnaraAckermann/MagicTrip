@@ -15,6 +15,9 @@
 body {
   background-color: var(--cor-fundo)!important; 
   }
+  li {
+    background-color: transparent !important;
+  }
   
   .card{
    background-color: var(--cor-fundo)!important; 

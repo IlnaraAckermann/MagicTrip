@@ -79,6 +79,16 @@ function NavBar() {
 										Contato
 									</Link>
 								</li>
+								<li className="nav-item">
+									<Link className="nav-link" href="/listar_usuarios" >
+										Listar Usuarios
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link" href="/cadastrar_usuarios" >
+										Cadastrar Usuarios
+									</Link>
+								</li>
 							</ul>
 						</div>
 					</div>
