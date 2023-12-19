@@ -10,10 +10,15 @@
   text-decoration: none;
   list-style: none;
   transition: background-color .5s;
-  background-color: var(--cor-fundo);
   color: var(--cor-texto) !important;
 }
-
+body {
+  background-color: var(--cor-fundo)!important; 
+  }
+  
+  .card{
+   background-color: var(--cor-fundo)!important; 
+ }
 
 .navbar-toggler {
   border-color: var(--cor-texto-alternativo);
