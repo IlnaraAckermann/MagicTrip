@@ -6,21 +6,22 @@ const PromotionCard = ({destino}) => {
 	return (
 		<>
 		
-        <div class="card principal bg-dark text-white">
+        <div className="card principal">
         <Image
         className="card-img-top"
         src={imgUrl}
-        width={300}
-        height={400}
         alt={nome}
+        width={600}
+        height={400}
+        layout="responsive"
        />
-<div class="card-body">
-  <h5 class="card-title">
+<div className="card-body">
+  <h5 className="card-title">
     {nome}
-    <span class="badge bg-success ">20%off</span>
+    <span className="badge bg-success ">20%off</span>
   </h5>
-  <p class="card-text">{descricao}</p>
-  <a href="#" class="btn btn-primary">Visitar</a>
+  <p className="card-text">{descricao}</p>
+  <a href="#" className="btn btn-primary">Visitar</a>
 </div>
 </div>
         </>
