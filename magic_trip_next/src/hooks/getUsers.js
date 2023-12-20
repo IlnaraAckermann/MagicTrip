@@ -10,7 +10,7 @@ const GetUsers = () => {
       .get(`http://localhost:8080/usuarios`)
       .then((res) => setuser(res.data))
       .catch((err) =>
-        console.error("Erro ao buscar a lista de destinos:", err)
+        console.error("Erro ao buscar a lista de usuários:", err)
       );
   };
 
