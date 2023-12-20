@@ -45,7 +45,39 @@ const useUsuarios = () => {
     }
   };
 
-  return { usuarios, listar, atualizar, criar, deletar };
+  const [formValues, setFormValues] = useState({
+    nome: "",
+    cpf: "",
+    endereco: "",
+    cidade: "",
+    estado: "",
+    email: "",
+    senha: "",
+  });
+  const resetFormValues = () => {
+    setFormValues({
+      nome: "",
+      cpf: "",
+      endereco: "",
+      cidade: "",
+      estado: "",
+      email: "",
+      senha: "",
+    });
+  };
+
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setFormValues({ ...formValues, [id]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    criar(formValues);
+    resetFormValues()
+  };
+
+  return { usuarios, formValues, handleInputChange, handleSubmit, listar, atualizar, criar, deletar };
 };
 
 export default useUsuarios;

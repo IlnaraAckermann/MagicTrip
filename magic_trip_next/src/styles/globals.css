@@ -12,6 +12,10 @@
   transition: background-color .5s;
   color: var(--cor-texto) !important;
 }
+
+input {
+  color:black !important;
+}
 body {
   background-color: var(--cor-fundo)!important; 
   }
