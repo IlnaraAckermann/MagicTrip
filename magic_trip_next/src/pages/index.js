@@ -1,5 +1,5 @@
 import PageHead from "@/components/head/Head";
-import getDestinos from "@/context/getDestinos";
+import getDestinos from "@/hooks/getDestinos";
 import DestineCard from "@/components/cards/DestineCard";
 import PromotionCard from "@/components/cards/PromotionCard";
 
