@@ -10,12 +10,11 @@ const UserCard = ({ user }) => {
         <div className="card-header">{nome}</div>
         <div className="card-body">
           <div className="card principal">
-          <Image
+          <Image 
             	src={imgUrl}
               alt={nome}
-              width={600}
-              height={400}
-              layout="responsive"
+              width={300}
+              height={300}
                />  
             <ul className="list-group list-group-flush">
               <li className="list-group-item">CPF: {cpf}</li>
